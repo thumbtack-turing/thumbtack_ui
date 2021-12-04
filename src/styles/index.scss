@@ -1,15 +1,15 @@
 // utilities
-@import 'normalize';
-@import 'reset';
-@import 'responsive';
+@import 'utilities/_normalize';
+@import 'utilities/_reset';
+@import 'utilities/_responsive';
 
 // base
-@import 'variables';
-@import 'mixins';
-@import 'typography';
+@import 'base/_variables';
+@import 'base/_mixins';
+@import 'base/_typography';
 
 // layouts
-@import '_App';
+@import 'layouts/_App';
 
 // body {
 //   margin: 0;
