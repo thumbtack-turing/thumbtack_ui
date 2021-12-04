@@ -43,3 +43,15 @@ textarea {
     overflow-wrap: break-word;
     -webkit-line-break: after-white-space;
 }
+
+
+
+// new entries
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
