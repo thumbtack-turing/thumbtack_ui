@@ -4,7 +4,7 @@ import CreateFolder from './CreateFolder';
 
 const AddForm = (): JSX.Element => {
   return (
-    <article>
+    <article className='add-form'>
       <CreateResource />
       <CreateFolder />
     </article>

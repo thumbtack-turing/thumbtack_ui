@@ -15,7 +15,8 @@ const CreateFolder = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // create new Folder from interface
+    // create new Folder from interface (post to GQL)
+    // store new Folder in the cache?
     setShowing(false);
     setName('');
   }
