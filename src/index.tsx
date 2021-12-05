@@ -9,6 +9,8 @@ import './styles/index.scss';
 
 const root = document.getElementById('root');
 
+// client.query()
+
 render(
   <React.StrictMode>
     <ApolloProvider client={client}>
