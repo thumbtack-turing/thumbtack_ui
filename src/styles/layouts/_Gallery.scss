@@ -1,5 +1,5 @@
-.add-form {
-  @include wh(100%, 10%);
+.gallery {
+  @include wh(100%, 50%);
   @include flex-row();
   @include center-xy();
 }
