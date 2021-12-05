@@ -1,19 +1,7 @@
 import { InMemoryCache, makeVar } from '@apollo/client';
 import { Todos } from '../models/todo';
 
-const cache: InMemoryCache = new InMemoryCache({
-  typePolicies: {
-    Query: {
-      fields: {
-        todos: {
-          read () {
-            return todosVar();
-          }
-        }
-      }
-    }
-  }
-});
+const cache: InMemoryCache = new InMemoryCache();
 
 const todosInitialValue: Todos = [
   {
