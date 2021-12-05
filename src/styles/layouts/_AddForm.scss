@@ -1,5 +1,15 @@
 .add-form {
-  @include wh(100%, 10%);
+  @include wh(30%, 10%);
   @include flex-row();
   @include center-xy();
+}
+
+.create-container {
+  @include flex-column();
+  @include wh(50%, 100%);
+}
+
+.create-form {
+  @include flex-column();
+  @include max-wh();
 }
