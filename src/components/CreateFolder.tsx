@@ -22,7 +22,7 @@ const CreateFolder = (): JSX.Element => {
   }
 
   return (
-    <article>
+    <article className='create-container'>
       <button
       onClick={ toggleVisibility }
       >
@@ -31,6 +31,7 @@ const CreateFolder = (): JSX.Element => {
       {
         showing &&
           <form
+            className='create-form'
             onSubmit={ handleSubmit }
           >
             <input
