@@ -1,6 +1,7 @@
 {
   "name": "thumbtack_ui",
   "version": "0.1.0",
+  "proxy": "https://thumbtack-ui.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.5",
