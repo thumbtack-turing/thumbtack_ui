@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+// import CREATE_RESOURCE from '../operations/mutations/CREATE_RESOURCE';
 
 const CreateResource = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ url, setUrl ] = useState('');
+  // const [ createResource, { data }] = useMutation(CREATE_RESOURCE);
 
   const toggleVisibility = () => {
     setShowing(!showing);
