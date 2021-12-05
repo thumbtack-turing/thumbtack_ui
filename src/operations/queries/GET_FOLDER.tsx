@@ -2,7 +2,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_FOLDER = gql`
-  query getFolder($id: Number!) {
+  query getFolder($id: ID!) {
     getFolder(id: $id) {
       id
       name
@@ -23,4 +23,4 @@ export const GET_FOLDER = gql`
       }
     }
   }
-`
+`;
