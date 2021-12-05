@@ -1,3 +1,10 @@
 .profile {
   @include max-wh();
+  @include flex-column();
+  align-items: center;
+}
+
+.username {
+  @include flex-row();
+  @include center-xy();
 }
