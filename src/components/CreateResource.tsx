@@ -15,7 +15,8 @@ const CreateResource = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // create new Resource from interface
+    // create new Resource from interface (post to GQL)
+    // store new Resource in the cache??
     setShowing(false);
     setUrl('');
   }
