@@ -1,14 +1,12 @@
 import React from 'react';
 
-import Header from './Header';
-import Main from './Main';
+import Profile from './Profile';
 
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Main />
-    </div>
+    <>
+      <Profile />
+    </>
   );
 }
 
