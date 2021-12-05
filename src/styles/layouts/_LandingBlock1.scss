@@ -1,0 +1,44 @@
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  //padding: 20px;
+  border-radius: 5px;
+  background-attachment: scroll;
+  overflow: hidden;
+
+}
+.videoContainer video {
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.videoContainer .overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  background: #031C52;
+  opacity: .75;
+}
+
+.catchphrase {
+  width: 700px;
+  font-size: 60px;
+  text-align: center;
+  position: absolute;
+  z-index: 3;
+  color: white;
+  font-family: $main-font;
+  top: 30%;
+  left: 25%;
+}
+
+#sub {
+  font-size: 25px;
+}
+
