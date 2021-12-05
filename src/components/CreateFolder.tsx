@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+// import CREATE_FOLDER from '../operations/mutations/CREATE_FOLDER';
 
 const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
+  // const [ createFolder, { data }] = useMutation(CREATE_FOLDER);
 
   const toggleVisibility = () => {
     setShowing(!showing);
@@ -26,7 +29,7 @@ const CreateFolder = (): JSX.Element => {
       <button
       onClick={ toggleVisibility }
       >
-        add new resource
+        add new folder
       </button>
       {
         showing &&
