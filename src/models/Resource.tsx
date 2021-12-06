@@ -1,7 +1,7 @@
 import { Folder } from './Folder';
 
 export interface Resource {
-  id: number;
+  id: number | null;
   name: string;
   url: string;
   image: string;
