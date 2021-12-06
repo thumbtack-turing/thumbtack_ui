@@ -6,6 +6,7 @@ import { GET_USER } from '../operations/queries/GET_USER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 
 const Profile = (): JSX.Element => {
+  // move this query to Landing Page's Login button onClick handler
   const email = 'rowan@test.com';
   const { loading, error, data: userData} = useQuery(GET_USER, {
     variables: { email }
@@ -22,13 +23,11 @@ const Profile = (): JSX.Element => {
   const childFolders = folderData?.getFolder?.childFolders;
   const childResources = folderData?.getFolder?.childResources;
 
-  console.log(childFolders, childResources);
-
   return (
     <section className='profile'>
       <h1 className='username'>{ userName }</h1>
       <AddForm />
-      <Gallery />
+      <Gallery childFolders={ childFolders } childResources={ childResources } />
     </section>
   )
 }

@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Folder = (): JSX.Element => {
+import { Folder as FolderProps } from '../models/Folder';
+
+const Folder = ({
+  id, name, base, parentId, childFolders, childResources
+}: FolderProps): JSX.Element => {
   return (
     <article className='folder'>
+      <h3>{ name }</h3>
     </article>
   )
 }
