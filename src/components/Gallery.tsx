@@ -1,8 +1,9 @@
 import React from 'react';
 import Resource from './Resource';
 import Folder from './Folder';
+import { Gallery as GalleryProps } from '../models/Gallery';
 
-const Gallery = (): JSX.Element => {
+const Gallery = ({ childFolders, childResources }: GalleryProps): JSX.Element => {
   // eventually we'll be mapping over arrays of
     // Resources and Folder in the cache
 
@@ -10,18 +11,17 @@ const Gallery = (): JSX.Element => {
   // render its childFolders and childResources
   // initial visit queries for user and user's root folder
   // store user in cache & use for all future queries
-  
+    const childFolderElements = childFolders?.map(folder =>
+      <Folder key={ folder.id } { ...folder } />
+    )
+    const childResourceElements = childResources?.map(resource =>
+      <Resource key={ resource.id } { ...resource } />
+    )
 
   return (
     <section className='gallery'>
-      <Resource />
-      <Folder />
-      <Resource />
-      <Folder />
-      <Resource />
-      <Folder />
-      <Resource />
-      <Folder />
+      { childFolderElements }
+      { childResourceElements }
     </section>
   )
 }
