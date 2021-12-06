@@ -3,10 +3,9 @@ import { Folder } from './Folder';
 export interface Resource {
   id: number;
   name: string;
-  base: boolean;
-  parentId: number;
-  childFolders: Folder[];
-  childResources: Resource[];
+  url: string;
+  image: string;
+  createdAt: string;
 }
 
 export type Resources = Resource[];
