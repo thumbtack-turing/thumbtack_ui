@@ -1,11 +1,12 @@
 import React from 'react';
-
-import Profile from './Profile';
+import { Outlet } from 'react-router-dom';
+import Header from './Header';
 
 const App = () => {
   return (
     <>
-      <Profile />
+      <Header />
+      <Outlet />
     </>
   );
 }
