@@ -11,7 +11,7 @@ const Folder = ({
   const user = useReactiveVar(userVar);
 
   return (
-    <Link to={ `/${user.id}/${id}` }>
+    <Link to={ `${name}` }>
       <article className='folder'>
         <h3>{ name }</h3>
       </article>
