@@ -2,20 +2,12 @@ import { gql } from '@apollo/client';
 
 const CREATE_FOLDER = gql`
   mutation createFolder(
-    $id: Number!,
-    $name: String!,
-    $base: Boolean!,
-    $parentId: Number!,
-    $childFolders: Folder[],
-    $childResources: Resource[]
+    $name: String!
+    $parentId: Number!
   ) {
     createFolder(
-      id: $id,
       name: $name,
-      base: $base,
-      parentId: $parentId,
-      childFolders: $childFolders,
-      childResources: $childResources
+      parentId: $parentId
     ) {
       // response
     }
