@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useReactiveVar } from '@apollo/client';
+import { currentFolderVar } from '../client/cache';
 // import CREATE_RESOURCE from '../operations/mutations/CREATE_RESOURCE';
 
 const CreateResource = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ url, setUrl ] = useState('');
-  // const [ createResource, { data }] = useMutation(CREATE_RESOURCE);
+  // const currentFolder = useReactiveVar(currentFolderVar);
+  // const [ createResource, { loading, error, data: }] = useMutation(CREATE_RESOURCE,
+    // variables: {
+      // url, parentId
+    // }
+  // );
 
   const toggleVisibility = () => {
     setShowing(!showing);
@@ -19,6 +25,7 @@ const CreateResource = (): JSX.Element => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     // create new Resource from interface (post to GQL)
+    // console.log(currentFolder.parentId);
     // store new Resource in the cache??
     setShowing(false);
     setUrl('');
