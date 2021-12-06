@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
-const CREATE_FOLDER = gql`
-  mutation createFolder(
+const UPDATE_FOLDER = gql`
+  mutation updateFolder(
     $id: Number!,
     $name: String!,
     $base: Boolean!,
@@ -9,7 +9,7 @@ const CREATE_FOLDER = gql`
     $childFolders: Folder[],
     $childResources: Resource[]
   ) {
-    createFolder(
+    updateFolder(
       id: $id,
       name: $name,
       base: $base,
@@ -22,4 +22,4 @@ const CREATE_FOLDER = gql`
   }
 `;
 
-export default CREATE_FOLDER;
+export default UPDATE_FOLDER;
