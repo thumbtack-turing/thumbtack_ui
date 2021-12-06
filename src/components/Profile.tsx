@@ -31,11 +31,11 @@ const Profile = (): JSX.Element => {
   const currentFolder = currentFolderVar(folderData?.getFolder);
 
   return (
-    <section className='profile'>
+    <main className='profile'>
       <h1 className='username'>{ userName }</h1>
       <AddForm />
       <Gallery childFolders={ childFolders } childResources={ childResources } />
-    </section>
+    </main>
   )
 }
 
