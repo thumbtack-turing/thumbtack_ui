@@ -1,6 +1,6 @@
 # thumbtack
 
-[![CircleCI](https://circleci.com/gh/thumbtack-turing/thumbtack-ui/tree/main.svg?style=svg)](https://circleci.com/gh/thumbtack-turing/thumbtack-ui/tree/main)
+[![CircleCI](https://circleci.com/gh/thumbtack-turing/thumbtack_ui/tree/main.svg?style=svg)](https://circleci.com/gh/thumbtack-turing/thumbtack_ui/tree/main)
 
 ## Abstract
 
