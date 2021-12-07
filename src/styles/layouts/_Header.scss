@@ -3,10 +3,11 @@
   height: 80px;
   background-color: $header-background;
   font-family: $main-font;
+  font-weight: $main-font-bold;
   color: $main-font-color;
   position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  z-index: 3;
+  z-index: 4;
 }

@@ -1,0 +1,24 @@
+.block2 {
+  height: 90vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.features-title {
+  font-family: $main-font;
+  font-weight: $main-font-bold;
+  font-size: 75px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.features-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 85%;
+  margin-bottom: 100px;
+}

@@ -48,7 +48,7 @@
   z-index: 3;
   color: white;
   font-family: $main-font;
-
+  font-weight: $main-font-bold;
 }
 
 .catchphrase2 {
@@ -71,4 +71,24 @@
   text-align: center;
   border-radius: 25px;
   margin-top: 350px;
+}
+
+.decor {
+  z-index: 3;
+  position: absolute;
+}
+
+#decor1 {
+  top: 60%;
+  left: 18%;
+}
+
+#decor2 {
+  top: 30%;
+  right: 15%;
+}
+
+#decor3 {
+  top: 70%;
+  right: 25%;
 }
