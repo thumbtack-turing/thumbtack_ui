@@ -2,16 +2,50 @@ import { gql } from '@apollo/client';
 
 const CREATE_FOLDER = gql`
   mutation createFolder(
+    $userId: ID!,
+    $parentId: ID!,
     $name: String!
-    $parentId: Number!
   ) {
     createFolder(
-      name: $name,
-      parentId: $parentId
+      userId: $userId,
+      parentId: $parentId,
+      name: $name
     ) {
-      // response
+      parentFolder {
+        name
+        childFolders {
+          name
+        }
+      }
+      newFolder{
+        id
+        name
+        base
+      }
     }
   }
 `;
 
 export default CREATE_FOLDER;
+
+mutation {
+    folders: createFolder(
+      input: {
+      userId: 1
+      parentId: 1
+      name: "TestFolder1"
+      }
+    ) {
+        parentFolder {
+          name
+          childFolders {
+            name
+          }
+        }
+        newFolder{
+          id
+          name
+          base
+        }
+      }
+}

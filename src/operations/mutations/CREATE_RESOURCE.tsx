@@ -1,15 +1,33 @@
 import { gql } from '@apollo/client';
 
 const CREATE_RESOURCE = gql`
-  mutation createResource(
+  mutation createResource(input: {
+    $name: String!
     $url: String!,
-    // $parentId: Number!
-  ) {
+    $folderId: ID!,
+  }) {
     createResource(
+      name: $name,
       url: $url,
-      // parentId: $parentId
+      folderId: $folderId
     ) {
-      // response
+      id
+      name
+      base
+      parentId
+      childResources {
+        id
+        name
+        url
+        image
+        createdAt
+      }
+      childFolders {
+        id
+        name
+        base
+        parentId
+      }
     }
   }
 `;

@@ -6,6 +6,21 @@ export const GET_USER = gql`
       id
       name
       email
+      baseFolder {
+        childFolders {
+          id
+          name
+          base
+          parentId
+        }
+        childResources {
+          id
+          name
+          url
+          image
+          createdAt
+        }
+      }
     }
   }
 `;

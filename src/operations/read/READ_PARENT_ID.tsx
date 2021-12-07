@@ -10,3 +10,14 @@ const READ_PARENT_ID = gql`
 `;
 
 export default READ_PARENT_ID;
+
+const todo = client.readFragment({
+  id: 'Folder:1', // The value of the to-do item's cache ID
+  fragment: gql`
+    fragment MyTodo on Todo {
+      id
+      text
+      completed
+    }
+  `,
+});
