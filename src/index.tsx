@@ -12,14 +12,6 @@ import './styles/index.scss';
 
 const root = document.getElementById('root');
 
-// client.query(
-//   query: gql`
-//     query {
-//       testField
-//     }
-//   `
-// )
-
 render(
   <React.StrictMode>
     <ApolloProvider client={client}>
