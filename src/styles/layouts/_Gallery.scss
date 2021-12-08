@@ -1,5 +1,6 @@
 .gallery {
-  @include wh(100%, 50%);
+  @include wh(100%, 100%);
   @include flex-row();
   @include center-xy();
+  justify-content: space-around;
 }
