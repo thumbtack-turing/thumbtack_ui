@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useReactiveVar } from '@apollo/client';
-import { userVar } from '../client/cache';
+import { currentFolderVar } from '../client/cache';
 
 import { Folder as FolderProps } from '../models/Folder';
 
-const Folder = ({
-  id, name, base, parentId, childFolders, childResources
-}: FolderProps): JSX.Element => {
-  const user = useReactiveVar(userVar);
+const Folder = (props: FolderProps): JSX.Element => {
+  const currentFolder = useReactiveVar(currentFolderVar);
 
   return (
-    <Link to={ `${name}` }>
+    <Link to={ `${props.name}` } onClick={ () => currentFolderVar(props) } >
       <article className='folder'>
-        <h3>{ name }</h3>
+        <h3>{ props.name }</h3>
       </article>
     </Link>
   )

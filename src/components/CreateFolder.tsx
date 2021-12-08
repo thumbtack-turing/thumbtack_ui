@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
-import { currentFolderVar } from '../client/cache';
-// import CREATE_FOLDER from '../operations/mutations/CREATE_FOLDER';
+import { userVar, currentFolderVar } from '../client/cache';
+import CREATE_FOLDER from '../operations/mutations/CREATE_FOLDER';
 
 const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
-  const currentFolder = useReactiveVar(currentFolderVar);
-  // const [ createFolder, { loading, error, data: }] = useMutation(CREATE_FOLDER,
-    // variables: {
-      // name, parentId
-    // }
-  // );
+  const { parentId } = useReactiveVar(currentFolderVar);
+  const { id: userId } = useReactiveVar(userVar);
+
+  const [ createFolder, { loading, error, data }] = useMutation(CREATE_FOLDER, {
+    variables: {
+      userId, parentId, name
+    }
+  });
 
   const toggleVisibility = () => {
     setShowing(!showing);
@@ -25,7 +27,7 @@ const CreateFolder = (): JSX.Element => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     // create new Folder from interface (post to GQL)
-    console.log(currentFolder.parentId);
+    // console.log(currentFolder.parentId);
     // store new Folder in the cache?
     setShowing(false);
     setName('');

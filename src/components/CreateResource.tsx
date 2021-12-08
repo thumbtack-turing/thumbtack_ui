@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { currentFolderVar } from '../client/cache';
-// import CREATE_RESOURCE from '../operations/mutations/CREATE_RESOURCE';
+import CREATE_RESOURCE from '../operations/mutations/CREATE_RESOURCE';
 
 const CreateResource = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
+  const [ name, setName ] = useState('');
   const [ url, setUrl ] = useState('');
-  // const currentFolder = useReactiveVar(currentFolderVar);
-  // const [ createResource, { loading, error, data: }] = useMutation(CREATE_RESOURCE,
-    // variables: {
-      // url, parentId
-    // }
-  // );
+  const { id: folderId } = useReactiveVar(currentFolderVar);
+  const [ createResource, { loading, error, data }] = useMutation(CREATE_RESOURCE, {
+    variables: {
+      name, url, folderId
+    }
+  });
 
   const toggleVisibility = () => {
     setShowing(!showing);
@@ -19,7 +20,11 @@ const CreateResource = (): JSX.Element => {
   }
 
   const handleChange = (event: any) => {
-    setUrl(event.target.value);
+    if (event.target.name === 'name') {
+      setName(event.target.value);
+    } else if (event.target.name === 'url') {
+      setUrl(event.target.value);
+    }
   }
 
   const handleSubmit = (event: any) => {
@@ -28,6 +33,7 @@ const CreateResource = (): JSX.Element => {
     // console.log(currentFolder.parentId);
     // store new Resource in the cache??
     setShowing(false);
+    setName('');
     setUrl('');
   }
 
@@ -46,6 +52,14 @@ const CreateResource = (): JSX.Element => {
           >
             <input
               type='text'
+              name='name'
+              placeholder='name'
+              onChange={ handleChange }
+              required
+            />
+            <input
+              type='text'
+              name='url'
               placeholder='url'
               onChange={ handleChange }
               required
