@@ -22,7 +22,7 @@ const cache: InMemoryCache = new InMemoryCache({
 });
 
 export const userVar: ReactiveVar<User> = makeVar<User>({
-  id: null, name:'', email:'', baseFolder: {}
+  id: null, name:'', email:'', baseFolder: null
 });
 
 export const currentFolderVar: ReactiveVar<Folder> = makeVar<Folder>({
