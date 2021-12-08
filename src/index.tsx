@@ -7,6 +7,7 @@ import client from './client/client';
 
 import App from './components/App';
 import Profile from './components/Profile';
+import Gallery from './components/Gallery';
 import LandingPage from './components/LandingPage';
 import './styles/index.scss';
 
@@ -19,7 +20,11 @@ render(
         <Routes>
         <Route path='/' element={ <App /> }>
           <Route index element={ <LandingPage /> } />
-          <Route path='myfolders' element={ <Profile /> } />
+          <Route path='myfolders' element={ <Profile /> } >
+            <Route index element={ <Gallery /> } />
+            <Route path=':filepath' element={ <Gallery /> } />
+          </Route>
+          <Route path='*' element={ <h1>404</h1> } />
         </Route>
         </Routes>
         <App />
