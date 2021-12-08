@@ -7,7 +7,8 @@ import client from './client/client';
 
 import App from './components/App';
 import Profile from './components/Profile';
-import Gallery from './components/Gallery';
+import BaseFolderView from './components/BaseFolderView';
+import SubFolderView from './components/SubFolderView';
 import LandingPage from './components/LandingPage';
 import './styles/index.scss';
 
@@ -21,8 +22,8 @@ render(
         <Route path='/' element={ <App /> }>
           <Route index element={ <LandingPage /> } />
           <Route path='myfolders' element={ <Profile /> } >
-            <Route index element={ <Gallery /> } />
-            <Route path=':filepath' element={ <Gallery /> } />
+            <Route index element={ <BaseFolderView /> } />
+            <Route path=':folderId' element={ <SubFolderView /> } />
           </Route>
           <Route path='*' element={ <h1>404</h1> } />
         </Route>
