@@ -10,9 +10,10 @@ const CreateResource = (): JSX.Element => {
   const { id: folderId } = useReactiveVar(currentFolderVar);
   const [ createResource, { loading, error, data }] = useMutation(CREATE_RESOURCE, {
     variables: {
-      name, url, folderId
+      folderId, name, url
     }
   });
+  // console.log(folderId)
 
   const toggleVisibility = () => {
     setShowing(!showing);
@@ -30,6 +31,7 @@ const CreateResource = (): JSX.Element => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     // create new Resource from interface (post to GQL)
+    createResource();
     // console.log(currentFolder.parentId);
     // store new Resource in the cache??
     setShowing(false);

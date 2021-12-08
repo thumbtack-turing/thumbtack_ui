@@ -7,11 +7,11 @@ const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
   const { parentId } = useReactiveVar(currentFolderVar);
-  const { id: userId } = useReactiveVar(userVar);
+  // const { id: userId } = useReactiveVar(userVar);
 
   const [ createFolder, { loading, error, data }] = useMutation(CREATE_FOLDER, {
     variables: {
-      userId, parentId, name
+      // userId, parentId, name
     }
   });
 
@@ -27,6 +27,7 @@ const CreateFolder = (): JSX.Element => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     // create new Folder from interface (post to GQL)
+    createFolder();
     // console.log(currentFolder.parentId);
     // store new Folder in the cache?
     setShowing(false);

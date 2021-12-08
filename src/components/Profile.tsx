@@ -11,22 +11,22 @@ const Profile = (): JSX.Element => {
   // move this query to Landing Page's Login button onClick handler
   // will need to pass a prop from login's getUser query
   // can we cache this data instead of prop drilling?
-  // const client = useApolloClient();
-  // console.log(client);
 
-  const email = 'rowan@test.com';
-  const { loading, error, data: userData } = useQuery(GET_USER, {
+  const email = 'eak@example.com';
+  const { loading, error, data } = useQuery(GET_USER, {
     variables: { email }
   });
   // can't pass email as a prop to profile because of routes...
 
-  const { name: userName } = useReactiveVar(userVar);
-
-  // const userId = userData?.getUser?.id;
-  // const userName = userData?.getUser?.name;
-  // const childFolders = userData?.getUser?.baseFolder.childFolders;
-  // const childResources = userData?.getUser?.baseFolder.childResources;
-  const currentFolder = useReactiveVar(currentFolderVar);
+  const userData = data?.getUser;
+  console.log('user Data', userData)
+  if (userData) {
+    userVar(userData)
+  }
+  const { name: userName, baseFolder } = useReactiveVar(userVar);
+  if (baseFolder) {
+    currentFolderVar(baseFolder);
+  }
 
   return (
     <main className='profile'>
