@@ -5,6 +5,7 @@ export interface Folder {
   name: string;
   base: boolean;
   parentId: number | null;
+  filePath: string;
   childFolders: Folder[];
   childResources: Resource[];
 }
