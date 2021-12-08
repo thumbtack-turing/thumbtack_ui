@@ -2,9 +2,9 @@ import { gql } from '@apollo/client';
 
 const CREATE_RESOURCE = gql`
   mutation createResource(
-    $name: String!
+    $name: String!,
     $url: String!,
-    $folderId: ID!,
+    $folderId: ID!
   ) {
     createResource(
       name: $name,

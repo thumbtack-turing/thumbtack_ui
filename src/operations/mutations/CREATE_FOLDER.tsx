@@ -32,7 +32,7 @@ const CREATE_FOLDER = gql`
             createdAt
           }
         }
-        newFolder{
+        newFolder {
           id
           name
           base

@@ -7,11 +7,17 @@ export const GET_USER = gql`
       name
       email
       baseFolder {
+        id
+        name
+        base
+        parentId
+        # filePath
         childFolders {
           id
           name
           base
           parentId
+          # filePath
         }
         childResources {
           id
