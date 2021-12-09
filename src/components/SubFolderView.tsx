@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery, useReactiveVar } from '@apollo/client';
-import { userVar, currentFolderVar } from '../client/cache';
+import { useQuery } from '@apollo/client';
+import { currentFolderVar } from '../client/cache';
 import Resource from './Resource';
 import Folder from './Folder';
+import Loading from './Loading';
+import Error from './Error';
 import { Folder as FolderModel } from '../models/Folder';
 import { Resource as ResourceModel } from '../models/Resource';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
@@ -34,11 +36,15 @@ const SubFolderView = (): JSX.Element => {
 
 return (
   <section className='gallery'>
-    <h1 className='folder-name'> { folderData?.name } </h1>
-    <section className='gallery-items'>
-    { childFolderElements }
-    { childResourceElements }
-    </section>
+    { loading && <Loading /> }
+    { error && <Error /> }
+    { data && <>
+      <h1 className='folder-name'> { folderData?.name } </h1>
+      <section className='gallery-items'>
+      { childFolderElements }
+      { childResourceElements }
+      </section>
+    </> }
   </section>
 )
 };
