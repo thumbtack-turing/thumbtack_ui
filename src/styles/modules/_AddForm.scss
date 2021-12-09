@@ -1,7 +1,21 @@
+.name-and-form-container {
+  // position: fixed;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0rem;
+  width: 100%;
+  @include flex-column();
+  align-items: center;
+  margin-top: 5rem;
+  z-index: 1;
+  // @include center-xy();
+}
+
 .add-form {
-  @include wh(30%, 10%);
+  @include wh(30%, 0rem);
   @include flex-row();
-  @include center-xy();
+  // @include center-xy();
+  // justify-content: flex-start;
 }
 
 .create-container {

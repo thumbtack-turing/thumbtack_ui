@@ -1,6 +1,9 @@
+.resource-container {
+  margin: 1rem;
+}
+
 .resource {
-  width: 5rem;
-  height: 5rem;
+  @include wh(10rem, 10rem);
   // background-image: url('../../assets/PinClipart.com_caliper-clipart_1117848.png');
   background-size: cover;
 }

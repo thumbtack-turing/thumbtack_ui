@@ -6,6 +6,14 @@
 }
 
 .username {
-  @include flex-row();
-  @include center-xy();
+  // @include flex-row();
+  // @include center-xy();
 }
+
+// .name-and-form-container {
+//   position: fixed;
+//   @include max-wh();
+//   @include flex-column();
+//   align-items: center;
+//   // @include center-xy();
+// }

@@ -27,8 +27,10 @@ const Profile = (): JSX.Element => {
       { loading && <Loading /> }
       { error && <Error /> }
       { data && <>
-        <h1 className='username'>{ userName }</h1>
-        <AddForm />
+        <article className='name-and-form-container'>
+          <h1 className='username'>{ userName }'s stuff</h1>
+          <AddForm />
+        </article>
         <Outlet />
       </> }
     </main>
