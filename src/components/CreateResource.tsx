@@ -43,6 +43,7 @@ const CreateResource = (): JSX.Element => {
     <article className='create-container'>
       <button
       onClick={ toggleVisibility }
+      className='add-resource-btn'
       >
         add new resource
       </button>
@@ -58,6 +59,7 @@ const CreateResource = (): JSX.Element => {
               placeholder='name'
               onChange={ handleChange }
               required
+              className='resource-name-input'
             />
             <input
               type='text'
@@ -65,8 +67,9 @@ const CreateResource = (): JSX.Element => {
               placeholder='url'
               onChange={ handleChange }
               required
+              className='resource-url-input'
             />
-            <button>
+            <button className='submit-create-resource-btn'>
               create
             </button>
           </form>

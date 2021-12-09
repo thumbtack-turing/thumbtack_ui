@@ -34,7 +34,7 @@ const SubFolderView = (): JSX.Element => {
 
 return (
   <section className='gallery'>
-    <h1> { folderData?.name } </h1>
+    <h1 className='folder-name'> { folderData?.name } </h1>
     <section className='gallery-items'>
     { childFolderElements }
     { childResourceElements }

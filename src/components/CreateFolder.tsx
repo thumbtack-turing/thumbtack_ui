@@ -7,6 +7,7 @@ const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
   const { id } = useReactiveVar(currentFolderVar);
+  console.log(currentFolderVar())
   const { id: userId } = useReactiveVar(userVar);
 
   const [ createFolder, { loading, error, data }] = useMutation(CREATE_FOLDER, {
@@ -37,6 +38,7 @@ const CreateFolder = (): JSX.Element => {
   return (
     <article className='create-container'>
       <button
+      className='add-folder-btn'
       onClick={ toggleVisibility }
       >
         add new folder
@@ -52,8 +54,9 @@ const CreateFolder = (): JSX.Element => {
               placeholder='folder name'
               onChange={ handleChange }
               required
+              className='folder-name-input'
             />
-            <button>
+            <button className='submit-create-folder-btn'>
               create
             </button>
           </form>

@@ -27,7 +27,7 @@ const BaseFolderView = (): JSX.Element => {
 
   return (
     <section className='gallery'>
-      <h1> { baseFolderData?.name } </h1>
+      <h1 className='folder-name'> { baseFolderData?.name } </h1>
       <section className='gallery-items'>
       { childFolderElements }
       { childResourceElements }
