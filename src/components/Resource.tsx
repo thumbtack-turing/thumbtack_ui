@@ -7,7 +7,7 @@ const Resource = ({
 }: ResourceProps): JSX.Element => {
   return (
     <a href={ url } target='_blank' rel='noopener noreferrer' className='resource-link'>
-      <article className='resource'>
+      <article className='resource' style={{ backgroundImage: `url(${image})` }}>
         <h3>{ name }</h3>
       </article>
     </a>
