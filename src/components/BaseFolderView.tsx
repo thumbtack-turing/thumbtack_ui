@@ -21,9 +21,6 @@ const BaseFolderView = (): JSX.Element => {
     <Resource key={ resource.id } { ...resource } />
   )
 
-  console.log(baseFolderData)
-  console.log(childFolderElements)
-
   const promptWhenEmpty = () => {
     if (!childFolderElements && !childResourceElements) {
       return (
@@ -38,7 +35,7 @@ const BaseFolderView = (): JSX.Element => {
     <section className='gallery'>
       <h4 className='folder-name'> /{ baseFolderData?.name } </h4>
       <section className='gallery-items'>
-      { promptWhenEmpty }
+      { promptWhenEmpty() }
       { childFolderElements }
       { childResourceElements }
       </section>
