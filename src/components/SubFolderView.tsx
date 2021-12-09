@@ -12,20 +12,16 @@ import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 
 const SubFolderView = (): JSX.Element => {
   const { folderId } = useParams();
-  console.log(folderId);
 
   const { loading, error, data } = useQuery(GET_FOLDER, {
     variables: { id: folderId }
   });
 
   const folderData = data?.getFolder;
-  // currentFolderVar(folderData);
-  console.log(folderData)
+
   if (folderData) {
     currentFolderVar(folderData);
   }
-  // const currentFolder = useReactiveVar(currentFolderVar);
-  // console.log(currentFolder)
 
   const childFolderElements = folderData?.childFolders?.map((folder: FolderModel) =>
     <Folder key={ folder.id } { ...folder } />
