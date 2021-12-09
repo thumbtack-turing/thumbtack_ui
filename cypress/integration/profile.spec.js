@@ -69,6 +69,7 @@ describe('profile page', () => {
   })
 
   it('should delete an item when the icon is clicked', () => {
-    cy.get('.close-icon').last().click()
+    cy.visit(url)
+      .get('.close-icon').last().click()
   })
 })
