@@ -2,5 +2,13 @@
   @include wh(100%, 100%);
   @include flex-row();
   @include center-xy();
+  // justify-content: space-around;
+}
+
+.gallery-items {
+  @include wh(100%, 100%);
+  @include flex-row();
+  @include center-xy();
   justify-content: space-around;
+  flex-wrap: wrap;
 }

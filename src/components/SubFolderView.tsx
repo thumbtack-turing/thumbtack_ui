@@ -17,10 +17,11 @@ const SubFolderView = (): JSX.Element => {
   });
 
   const folderData = data?.getFolder;
+  // currentFolderVar(folderData);
   console.log(folderData)
-  // if (folderData) {
-  //   currentFolderVar(folderData);
-  // }
+  if (folderData) {
+    currentFolderVar(folderData);
+  }
   // const currentFolder = useReactiveVar(currentFolderVar);
   // console.log(currentFolder)
 

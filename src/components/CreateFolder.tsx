@@ -6,12 +6,12 @@ import CREATE_FOLDER from '../operations/mutations/CREATE_FOLDER';
 const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
-  const { parentId } = useReactiveVar(currentFolderVar);
-  // const { id: userId } = useReactiveVar(userVar);
+  const { id } = useReactiveVar(currentFolderVar);
+  const { id: userId } = useReactiveVar(userVar);
 
   const [ createFolder, { loading, error, data }] = useMutation(CREATE_FOLDER, {
     variables: {
-      // userId, parentId, name
+      userId, parentId: id, name
     }
   });
 

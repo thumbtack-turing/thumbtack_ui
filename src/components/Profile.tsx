@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useQuery, useReactiveVar } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import AddForm from './AddForm';
-import Gallery from './Gallery';
+// import Gallery from './Gallery';
 import { GET_USER } from '../operations/queries/GET_USER';
 // import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 

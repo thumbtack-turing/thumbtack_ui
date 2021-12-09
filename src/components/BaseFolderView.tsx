@@ -11,6 +11,11 @@ import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 const BaseFolderView = (): JSX.Element => {
   const user = useReactiveVar(userVar);
   const baseFolderData = user.baseFolder;
+
+  if (baseFolderData) {
+    currentFolderVar(baseFolderData);
+  }
+
   console.log('baseFolderData', baseFolderData);
 
   const childFolderElements = baseFolderData?.childFolders.map((folder: FolderModel) =>
@@ -23,8 +28,10 @@ const BaseFolderView = (): JSX.Element => {
   return (
     <section className='gallery'>
       <h1> { baseFolderData?.name } </h1>
+      <section className='gallery-items'>
       { childFolderElements }
       { childResourceElements }
+      </section>
     </section>
   )
 };
