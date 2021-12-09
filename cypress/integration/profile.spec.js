@@ -67,4 +67,8 @@ describe('profile page', () => {
       .url()
       .should('not.eq', '/myfolders')
   })
+
+  it('should delete an item when the icon is clicked', () => {
+    cy.get('.close-icon').last().click()
+  })
 })
