@@ -1,6 +1,14 @@
+.folder-container {
+  
+}
+
 .folder {
   width: 5rem;
   height: 5rem;
   background-image: url('../../assets/medium-blue-folder-hi.png');
   background-size: cover;
+}
+
+.close-icon {
+  @include wh(1rem, 1rem);
 }
