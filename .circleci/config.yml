@@ -1,12 +1,38 @@
+# version: 2.1
+# orbs:
+#   cypress: cypress-io/cypress@1.29.0
+# workflows:
+#   build:
+#     jobs:
+#       - cypress/install
+#       - cypress/run:
+#           requires:
+#             - cypress/install
+#           start: 'npm start' # start server before running tests
+
+
+
+
 version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1.29.0
+orbs: #CircleCI orbs are shareable packages of configuration elements, including jobs, commands, and executors. Orbs make writing and customizing CircleCI config simple.
+  cypress: cypress-io/cypress@1.29.0 # Has all dependencies we need to run our tests
+jobs: #our job has 3 steps: checkout, and the 2 run commands
+  run-cypress:
+    executor: cypress/default
+    steps:
+      - checkout # Checkout Your Project's Code From Github
+      - run:
+          name: Install Dependencies #names are just labels for developers to understand
+          command: npm install
+      - run:
+          name: Run Cypress Tests
+          command: npm test # "start-server-and-test start http://localhost:3000 cy:run" which we changed in the package.json
 workflows:
-  build:
-    jobs:
-      - cypress/install:
-          build: 'npm run build' # run a custom app build step
-      - cypress/run:
-          requires:
-            - cypress/install
-          start: 'npm start' # start server before running tests
+  end-to-end-tests:
+    jobs: #has one job, which is to run cypress
+      - run-cypress
+
+      # Above this line, the circleCI orb is configuring the machine
+      # $ git clone <your-github-repo-url-here>
+      # $ npm install
+      #$ start-server-and-test start http://localhost:3000 cy:run
