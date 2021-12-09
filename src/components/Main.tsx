@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_ALL_TODOS } from '../operations/queries/getAllTodos';
-import { Todos } from '../models/todo';
+// import { GET_ALL_TODOS } from '../operations/queries/getAllTodos';
+// import { Todos } from '../models/todo';
 import LandingPage from './LandingPage'
 // import { GET_ALL_TODOS } from '../operations/queries/getAllTodos';
 // import { Todos } from '../models/todo';
