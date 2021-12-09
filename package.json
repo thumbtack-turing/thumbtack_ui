@@ -48,10 +48,7 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@types/react-animate-on-scroll": "^2.1.5"
-=======
+    "@types/react-animate-on-scroll": "^2.1.5",
     "cypress": "^9.1.1"
->>>>>>> main
   }
 }
