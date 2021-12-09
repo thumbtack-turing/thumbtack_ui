@@ -12,7 +12,7 @@
 }
 
 .add-form {
-  @include wh(30%, 0rem);
+  @include wh(30%, 0.01rem);
   @include flex-row();
   // @include center-xy();
   // justify-content: flex-start;
