@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery, useReactiveVar } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { currentFolderVar } from '../client/cache';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 
 import { Folder as FolderProps } from '../models/Folder';
 
 const Folder = (props: FolderProps): JSX.Element => {
-  // const currentFolder = useReactiveVar(currentFolderVar);
   const { id, name } = props;
 
-  const { loading, error, data } = useQuery(GET_FOLDER, {
+  const { data } = useQuery(GET_FOLDER, {
     variables: { id }
   });
 

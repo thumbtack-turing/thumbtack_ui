@@ -8,7 +8,7 @@ const CreateResource = (): JSX.Element => {
   const [ name, setName ] = useState('');
   const [ url, setUrl ] = useState('');
   const { id: folderId } = useReactiveVar(currentFolderVar);
-  const [ createResource, { loading, error, data }] = useMutation(CREATE_RESOURCE, {
+  const [ createResource ] = useMutation(CREATE_RESOURCE, {
     variables: {
       folderId, name, url
     }
