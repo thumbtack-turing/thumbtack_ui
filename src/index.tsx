@@ -28,7 +28,6 @@ render(
           <Route path='*' element={ <h1>404</h1> } />
         </Route>
         </Routes>
-        <App />
       </Router>
     </ApolloProvider>
   </React.StrictMode>,
