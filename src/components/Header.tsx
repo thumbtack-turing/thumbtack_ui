@@ -4,10 +4,10 @@ import Menu from './Menu'
 
 const Header = () => {
   return (
-    <div>
+    <header>
       <Logo />
       <Menu />
-    </div>
+    </header>
   )
 }
 

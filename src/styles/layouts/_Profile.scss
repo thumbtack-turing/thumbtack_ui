@@ -1,0 +1,11 @@
+.profile {
+  @include max-wh();
+  @include flex-column();
+  align-items: center;
+  background-color: var(--background);
+}
+
+.username {
+  @include flex-row();
+  @include center-xy();
+}

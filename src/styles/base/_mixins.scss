@@ -1,5 +1,15 @@
 @import 'variables';
 
+@mixin max-wh() {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
 @mixin flex-row() {
   display: flex;
   flex-direction: row;
@@ -13,4 +23,5 @@
 @mixin center-xy() {
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
