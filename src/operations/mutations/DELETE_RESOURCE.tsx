@@ -2,12 +2,28 @@ import { gql } from '@apollo/client';
 
 const DELETE_RESOURCE = gql`
   mutation deleteResource(
-    $id: Number!
+    $id: ID!
   ) {
     deleteResource(
       id: $id
     ) {
-      // response
+      id
+      name
+      base
+      parentId
+      childResources {
+        id
+        name
+        url
+        image
+        createdAt
+      }
+      childFolders {
+        id
+        name
+        base
+        parentId
+      }
     }
   }
 `;
