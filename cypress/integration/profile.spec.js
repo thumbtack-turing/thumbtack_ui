@@ -4,7 +4,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 describe('profile page', () => {
-  const url = '/myfolders';
+  const url = 'localhost:3000/myfolders';
 
   before(() => {
     cy.visit(url)
