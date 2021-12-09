@@ -21,7 +21,7 @@ const Folder = (props: FolderProps): JSX.Element => {
   }
 
   return (
-    <Link to={ `${id}` } onClick={ handleClick } >
+    <Link to={ `/myfolders/${id}` } onClick={ handleClick } >
       <article className='folder'>
         <h3>{ name }</h3>
       </article>
