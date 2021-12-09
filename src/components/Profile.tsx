@@ -14,7 +14,6 @@ const Profile = (): JSX.Element => {
   });
 
   const userData = data?.getUser;
-  console.log('user Data', userData)
   if (userData) {
     userVar(userData)
   }

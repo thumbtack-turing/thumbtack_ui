@@ -14,8 +14,6 @@ const BaseFolderView = (): JSX.Element => {
     currentFolderVar(baseFolderData);
   }
 
-  console.log('baseFolderData', baseFolderData);
-
   const childFolderElements = baseFolderData?.childFolders.map((folder: FolderModel) =>
     <Folder key={ folder.id } { ...folder } />
   )
