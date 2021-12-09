@@ -20,14 +20,16 @@
     "react-scripts": "4.0.3",
     "sass": "^1.44.0",
     "typescript": "^4.5.2",
+    "use-local-storage": "^2.2.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "start-server-and-test start http-get://localhost:3000 cy:run",
     "eject": "react-scripts eject",
-    "cypress": "./node_modules/.bin/cypress open"
+    "cypress": "./node_modules/.bin/cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -48,7 +50,12 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@types/react-animate-on-scroll": "^2.1.5",
     "cypress": "^9.1.1"
+=======
+    "cypress": "^9.1.1",
+    "start-server-and-test": "^1.14.0"
+>>>>>>> main
   }
 }

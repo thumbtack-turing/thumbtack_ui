@@ -3,10 +3,12 @@ import { useQuery } from '@apollo/client';
 import { GET_ALL_TODOS } from '../operations/queries/getAllTodos';
 import { Todos } from '../models/todo';
 import LandingPage from './LandingPage'
+// import { GET_ALL_TODOS } from '../operations/queries/getAllTodos';
+// import { Todos } from '../models/todo';
 
 const Main = () => {
-  const { data } = useQuery(GET_ALL_TODOS);
-	const todos: Todos = data.todos;
+  // const { data } = useQuery(GET_ALL_TODOS);
+	// const todos: Todos = data.todos;
 
   return (
     <div>
