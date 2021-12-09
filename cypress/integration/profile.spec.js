@@ -26,6 +26,7 @@ describe('profile page', () => {
 
   it('should display forms to create a resource or folder', () => {
     cy.get('.add-form')
+      .get('.create-container')
         .should('be.visible')
   })
 
