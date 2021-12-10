@@ -3,6 +3,8 @@ import { useQuery } from '@apollo/client';
 // import { GET_ALL_TODOS } from '../operations/queries/getAllTodos';
 // import { Todos } from '../models/todo';
 import LandingPage from './LandingPage'
+
+import Profile from './Profile'
 // import { GET_ALL_TODOS } from '../operations/queries/getAllTodos';
 // import { Todos } from '../models/todo';
 

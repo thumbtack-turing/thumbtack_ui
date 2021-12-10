@@ -32,7 +32,8 @@ export const currentFolderVar: ReactiveVar<Folder> = makeVar<Folder>({
   parentId: null,
   filePath: '',
   childFolders:[],
-  childResources:[]
-});
+  childResources:[],
+  }
+);
 
 export default cache;

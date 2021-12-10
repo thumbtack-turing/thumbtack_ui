@@ -6,6 +6,8 @@ import AddForm from './AddForm';
 import Loading from './Loading';
 import Error from './Error';
 import { GET_USER } from '../operations/queries/GET_USER';
+import { useDrop } from 'react-dnd'
+import { ItemTypes } from '../constants/ItemTypes'
 
 const Profile = (): JSX.Element => {
   const email = 'eak@example.com';
@@ -22,7 +24,14 @@ const Profile = (): JSX.Element => {
     currentFolderVar(baseFolder);
   }
 
+  const [, drop] = useDrop(
+    () => ({
+      accept: ItemTypes.RESOURCE
+    })
+  )
+
   return (
+    
     <main className='profile'>
       { loading && <Loading /> }
       { error && <Error /> }
@@ -32,6 +41,7 @@ const Profile = (): JSX.Element => {
         <Outlet />
       </> }
     </main>
+   
   )
 }
 

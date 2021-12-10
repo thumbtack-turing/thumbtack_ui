@@ -11,12 +11,15 @@ import BaseFolderView from './components/BaseFolderView';
 import SubFolderView from './components/SubFolderView';
 import LandingPage from './components/LandingPage';
 import './styles/index.scss';
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 const root = document.getElementById('root');
 
 render(
   <React.StrictMode>
     <ApolloProvider client={client}>
+    <DndProvider backend={HTML5Backend}>
       <Router>
         <Routes>
         <Route path='/' element={ <App /> }>
@@ -29,6 +32,7 @@ render(
         </Route>
         </Routes>
       </Router>
+      </DndProvider>
     </ApolloProvider>
   </React.StrictMode>,
   root
