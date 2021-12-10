@@ -1,8 +1,19 @@
 .gallery {
+  margin-top: 5rem;
   @include wh(100%, 100%);
   @include flex-row();
-  @include center-xy();
-  // justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.folder-name {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0rem;
+  width: 100%;
+  background-color: white;
+  font-size: 2rem;
 }
 
 .gallery-items {
@@ -11,4 +22,6 @@
   @include center-xy();
   justify-content: space-around;
   flex-wrap: wrap;
+  // overflow-y: scroll;
+  margin: 0 2rem;
 }

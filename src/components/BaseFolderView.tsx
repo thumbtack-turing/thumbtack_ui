@@ -21,10 +21,21 @@ const BaseFolderView = (): JSX.Element => {
     <Resource key={ resource.id } { ...resource } />
   )
 
+  const promptWhenEmpty = () => {
+    if (!childFolderElements && !childResourceElements) {
+      return (
+        <h2 className='prompt-when-empty'>
+          Nothing saved yet. Add a new resource or folder to get started!
+        </h2>
+      )
+    }
+  }
+
   return (
     <section className='gallery'>
-      <h1 className='folder-name'> { baseFolderData?.name } </h1>
+      <h4 className='folder-name'> /{ baseFolderData?.name } </h4>
       <section className='gallery-items'>
+      { promptWhenEmpty() }
       { childFolderElements }
       { childResourceElements }
       </section>
