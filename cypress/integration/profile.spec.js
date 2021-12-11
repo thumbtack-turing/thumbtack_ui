@@ -26,6 +26,7 @@ describe('profile page', () => {
 
   it('should display forms to create a resource or folder', () => {
     cy.get('.add-form')
+      .get('.create-container')
         .should('be.visible')
   })
 
@@ -66,5 +67,10 @@ describe('profile page', () => {
     cy.get('.folder').last().click()
       .url()
       .should('not.eq', '/myfolders')
+  })
+
+  it('should delete an item when the icon is clicked', () => {
+    cy.visit(url)
+      .get('.close-icon').last().click()
   })
 })

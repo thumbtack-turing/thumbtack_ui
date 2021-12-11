@@ -19,13 +19,10 @@ const SubFolderView = (): JSX.Element => {
   });
 
   const folderData = data?.getFolder;
-  // currentFolderVar(folderData);
-  console.log(folderData)
+
   if (folderData) {
     currentFolderVar(folderData);
   }
-  // const currentFolder = useReactiveVar(currentFolderVar);
-  // console.log(currentFolder)
 
   const childFolderElements = folderData?.childFolders?.map((folder: FolderModel) =>
     <Folder key={ folder.id } { ...folder } />
@@ -34,13 +31,25 @@ const SubFolderView = (): JSX.Element => {
     <Resource key={ resource.id } { ...resource } />
   )
 
+  const promptWhenEmpty = () => {
+    if (!childFolderElements.length && !childResourceElements.length) {
+      return (
+        <h2 className='prompt-when-empty'>
+          Nothing saved yet. Add a new resource or folder to get started!
+        </h2>
+      )
+    }
+
+  }
+
 return (
   <section className='gallery'>
     { loading && <Loading /> }
     { error && <Error /> }
     { data && <>
-      <h1 className='folder-name'> { folderData?.name } </h1>
+      <h4 className='folder-name'> /{ folderData?.name } </h4>
       <section className='gallery-items'>
+      { promptWhenEmpty() }
       { childFolderElements }
       { childResourceElements }
       </section>
