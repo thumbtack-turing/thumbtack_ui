@@ -1,17 +1,17 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
+import { useDrop } from 'react-dnd';
 import { currentFolderVar } from '../client/cache';
-import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 import { ItemTypes } from '../constants/ItemTypes';
-import { useDrop } from 'react-dnd'
-import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
-import { gql } from '@apollo/client';
 import { Folder as FolderProps } from '../models/Folder';
-import { idText } from 'typescript';
-import { resourceUsage } from 'process';
+import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
+import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
 import DELETE_FOLDER from '../operations/mutations/DELETE_FOLDER';
 import closeIcon from '../assets/button-close-icon-645944.png';
+// import { resourceUsage } from 'process';
+// import { idText } from 'typescript';
+// import { gql } from '@apollo/client';
 
 const Folder = (props: FolderProps): JSX.Element => {
   const { id, name } = props;
@@ -19,12 +19,14 @@ const Folder = (props: FolderProps): JSX.Element => {
   const { data } = useQuery(GET_FOLDER, {
     variables: { id }
   });
-
-  const completeFolderData = data?.getFolder;
-
   const [ deleteFolder ] = useMutation(DELETE_FOLDER, {
     variables: { id }
   });
+  const [ updateResource,
+    { loading, error, data: resourceReturnData }
+  ] = useMutation(UPDATE_RESOURCE);
+
+  const completeFolderData = data?.getFolder;
 
   const handleClose = () => {
     deleteFolder();
@@ -36,15 +38,14 @@ const Folder = (props: FolderProps): JSX.Element => {
   }
 
   //const [resourceId, setResourceId] = useState(0)
-  const { id: oldFolderId } = currentFolderVar()
- //const [resourceName, setResourceName] = useState('')
-  const [updateResource, { loading, error, data: resourceReturnData}] = useMutation(UPDATE_RESOURCE);
+  //const [resourceName, setResourceName] = useState('')
+  const { id: oldFolderId } = currentFolderVar();
 
   console.log('resourceReturnData', resourceReturnData)
   const parentFolder = resourceReturnData?.updateResource?.folder
   if(parentFolder) {
     console.log('parentfolder', parentFolder)
-  } 
+  }
 
   const handleDrop = (item: any) => {
     // let draggedResourceId = Number(item.id)
@@ -70,8 +71,6 @@ const Folder = (props: FolderProps): JSX.Element => {
       isOver: monitor.isOver()
     })
   }))
- 
-
 
   return (
     <article className='folder-container'>
