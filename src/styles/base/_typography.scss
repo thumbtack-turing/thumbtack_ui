@@ -1,5 +1,10 @@
 $main-font: 'Raleway', sans-serif;
 
-h1 {
-  font-size: 3rem;
+.logo-title {
+  font-size: 2.5rem;
+  color: $logo-font-color;
+}
+
+.navlink {
+  font-size: 1.5rem;
 }

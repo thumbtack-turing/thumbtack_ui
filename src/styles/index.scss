@@ -13,8 +13,6 @@
 // layouts
 @import 'layouts/_base-layout';
 @import 'layouts/_Header';
-@import 'layouts/_Logo';
-@import 'layouts/_Menu';
 @import 'layouts/_LandingBlock1';
 @import 'layouts/_LandingBlock2';
 @import 'layouts/_Features';
@@ -31,3 +29,5 @@
 @import 'modules/_Folder';
 @import 'modules/_Resource';
 @import 'modules/_Loading';
+@import 'modules/_Logo';
+@import 'modules/_Menu';
