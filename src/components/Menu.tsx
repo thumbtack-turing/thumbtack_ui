@@ -1,14 +1,35 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Menu = () => {
   return (
-    <div className="menu">
-      <h1 className="links">Home</h1>
-      <h1 className="links">App</h1>
-      <h1 className="links">Features</h1>
-      <h1 className="links">About</h1>
-      <h1 className="links">Meet the Team</h1>
-    </div>
+    <nav className="menu">
+      <NavLink to='/'
+        className='navlink'
+      >
+        Home
+      </NavLink>
+      <NavLink to='/myfolders'
+        className='navlink'
+      >
+        App
+      </NavLink>
+      <NavLink to='/features'
+        className='navlink'
+      >
+        Features
+      </NavLink>
+      <NavLink to='/about'
+        className='navlink'
+      >
+        About
+      </NavLink>
+      <NavLink to='/meet-the-team'
+        className='navlink'
+      >
+        Meet the Team
+      </NavLink>
+    </nav>
   )
 }
 

@@ -1,6 +1,6 @@
-import React from 'react'
-import Logo from './Logo'
-import Menu from './Menu'
+import React from 'react';
+import Logo from './Logo';
+import Menu from './Menu';
 
 const Header = () => {
   return (
@@ -11,4 +11,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
