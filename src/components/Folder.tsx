@@ -15,27 +15,53 @@ import closeIcon from '../assets/button-close-icon-645944.png';
 
 const Folder = (props: FolderProps): JSX.Element => {
   const { id, name } = props;
-  const [updateResource, { loading, error }] = useMutation(UPDATE_RESOURCE);
-
 
   const { data } = useQuery(GET_FOLDER, {
     variables: { id }
   });
 
+  const completeFolderData = data?.getFolder;
+
   const [ deleteFolder ] = useMutation(DELETE_FOLDER, {
     variables: { id }
   });
 
-  const completeFolderData = data?.getFolder;
+  const handleClose = () => {
+    deleteFolder();
+    console.log('folder id', id);
+  }
 
   const handleClick = () => {
     currentFolderVar(completeFolderData);
   }
 
+  //const [resourceId, setResourceId] = useState(0)
+  const { id: oldFolderId } = currentFolderVar()
+ //const [resourceName, setResourceName] = useState('')
+  const [updateResource, { loading, error, data: resourceReturnData}] = useMutation(UPDATE_RESOURCE);
+
+  console.log('resourceReturnData', resourceReturnData)
+  const parentFolder = resourceReturnData?.updateResource?.folder
+  if(parentFolder) {
+    console.log('parentfolder', parentFolder)
+  } 
+
   const handleDrop = (item: any) => {
-    let newNum = Number(item.id)
-    updateResource({ variables: { id: newNum, folderId: item.id, newFolderId: id, name: item.name } })
+    // let draggedResourceId = Number(item.id)
+    updateResource({ variables: { id: item.id, folderId: oldFolderId, newFolderId: id } })
+     .then((res: any) => res.data.updateResource.folder)
+    //.then(data => console.log(data))
+      .then(parentFolder => {
+        console.log('currentfoldervar1', currentFolderVar())
+        currentFolderVar(parentFolder)})
+      .then(() => console.log('currentfoldervar2', currentFolderVar()))
+    // clearState()
   }
+
+  // const clearState = () => {
+  //   setResourceId(0)
+  //   setResourceName('')
+  // }
 
   const [ { isOver }, dropRef] = useDrop(() => ({
     accept: ItemTypes.RESOURCE,
@@ -44,11 +70,8 @@ const Folder = (props: FolderProps): JSX.Element => {
       isOver: monitor.isOver()
     })
   }))
+ 
 
-  const handleClose = () => {
-    deleteFolder();
-    console.log('folder id', id);
-  }
 
   return (
     <article className='folder-container'>

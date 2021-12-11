@@ -6,12 +6,12 @@ mutation updateResource(
   $id: ID!,
   $folderId: ID!,
   $newFolderId: ID!,
-  $name: String!
+  $name: String
 ) {
   updateResource(
     id: $id,
     folderId: $folderId,
-    name: $name
+    name: $name,
     newFolderId: $newFolderId
   ) {
     folder {
