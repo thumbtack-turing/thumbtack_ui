@@ -1,0 +1,18 @@
+.logo {
+  left: 0;
+  @include wh(20%, 100%);
+  @include flex-row();
+  @include center-xy();
+  // align-items: center;
+  flex-wrap: nowrap;
+  // padding: 0 1rem;
+  background-color: $logo-background-color;
+}
+
+.logo-title {
+  padding-right: 2rem;
+}
+
+.thumbtack-icon {
+  @include wh(5.5rem, 3rem);
+}
