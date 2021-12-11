@@ -12,7 +12,7 @@ import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 
 const SubFolderView = (): JSX.Element => {
   const { folderId } = useParams();
-  console.log(folderId);
+  //console.log(folderId);
 
   const { loading, error, data } = useQuery(GET_FOLDER, {
     variables: { id: folderId }

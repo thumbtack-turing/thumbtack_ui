@@ -6,16 +6,16 @@ import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 import { ItemTypes } from '../constants/ItemTypes';
 import { useDrop } from 'react-dnd'
 import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
+import { gql } from '@apollo/client';
+
 import { Folder as FolderProps } from '../models/Folder';
+import { idText } from 'typescript';
+import { resourceUsage } from 'process';
 
 const Folder = (props: FolderProps): JSX.Element => {
   const { id, name } = props;
+  const [updateResource, { loading, error }] = useMutation(UPDATE_RESOURCE);
 
-  const [updateResource, { loading, error }] = useMutation(UPDATE_RESOURCE, {
-    variables: {
-      id, folderId: id, name
-    }
-  });
 
   const { data } = useQuery(GET_FOLDER, {
     variables: { id }
@@ -27,9 +27,14 @@ const Folder = (props: FolderProps): JSX.Element => {
     currentFolderVar(completeFolderData);
   }
 
+  const handleDrop = (item: any) => {
+    let newNum = Number(item.id)
+    updateResource({ variables: { id: newNum, folderId: item.id, newFolderId: id, name: item.name } })
+  }
+
   const [ { isOver }, dropRef] = useDrop(() => ({
     accept: ItemTypes.RESOURCE,
-    drop: (item) => console.log(item),
+    drop: (item: any) => handleDrop(item),
     collect: (monitor) => ({
       isOver: monitor.isOver()
     })
