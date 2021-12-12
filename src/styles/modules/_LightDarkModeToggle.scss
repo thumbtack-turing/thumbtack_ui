@@ -1,0 +1,14 @@
+.light-dark-mode-toggle {
+  @include wh(100%, 100%);
+  @include flex-row();
+  @include center-xy();
+  @justify-content: space-between;
+}
+
+.light-dark-mode-label {
+  padding: 0 .5rem;
+}
+
+.toggle-icon {
+  @include wh(100%, 100%);
+}
