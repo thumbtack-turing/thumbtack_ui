@@ -1,12 +1,20 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import Logo from './Logo';
 import Menu from './Menu';
+import ProfileMenu from './ProfileMenu';
 
-const Header = () => {
+const Header = (): JSX.Element => {
+  const { pathname } = useLocation();
+  const isOnHomePage = !pathname.includes('myfolders');
+
   return (
-    <header className="header">
+    <header className='header'>
       <Logo />
-      <Menu />
+      { isOnHomePage
+        ? <Menu />
+        : <ProfileMenu />
+      }
     </header>
   )
 }
