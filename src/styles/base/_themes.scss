@@ -1,13 +1,84 @@
 :root {
-  --background: white;
-  --text-primary: black;
-  --text-secondary: royalblue;
-  --accent: purple;
+  --background: #{$cultured};
+  --header-background: #{$columbia-blue-light};
+  --logo-background: #{$cultured};
+  --logo-text: #{$deep-space-sparkle};
+  --text-shadow:#{$text-shadow-dark};
+  --box-shadow:#{$box-shadow-dark};
+  --username-color:#{$rich-black-fogra};
+  --add-resource-btn:#{$lavender-blush};
+  --create-resource-btn:#{$lavender-blush};
+  --add-folder-btn:#{$pale-pink-light};
+  --create-folder-btn:#{$pale-pink-light};
+  --input-field:#{$cultured};
+  --filepath:#{$rich-black-fogra};
 }
 
 [data-theme='dark'] {
-  --background: #{$pewter-blue};
-  --text-primary: white;
-  --text-secondary: grey;
-  --accent: darkred;
+  --background: #{$raisin-black-dark};
+  --header-background: #{$raisin-black-light};
+  --logo-background: #{$deep-space-sparkle};
+  --logo-text: #{$cultured};
+  --text-shadow:#{$text-shadow-light};
+  --box-shadow:#{$box-shadow-light};
+  --username-color:#{$pewter-blue};
+  --add-resource-btn:#{$french-sky-blue};
+  --create-resource-btn:#{$french-sky-blue};
+  --add-folder-btn:#{$celeste};
+  --create-folder-btn:#{$celeste};
+  --input-field:#{$cultured};
+  --filepath:#{$cultured};
+}
+
+.header,
+.gallery {
+  background-color: var(--header-background);
+}
+
+.logo-container,
+.logo-link {
+  background-color: var(--logo-background);
+}
+
+.logo-title {
+  color: var(--logo-text);
+  text-shadow: var(--text-shadow);
+}
+
+.username {
+  color: var(--username-color);
+  text-shadow: var(--text-shadow);
+}
+
+.profile,
+.folder-name {
+  background-color: var(--background);
+}
+
+// .add-btn {
+//   box-shadow: var(--box-shadow);
+// }
+
+.add-resource-btn {
+  background-color: var(--add-resource-btn);
+}
+
+.create-resource-btn {
+  background-color: var(--create-resource-btn);
+}
+
+.add-folder-btn {
+  background-color: var(--add-folder-btn);
+}
+
+.create-folder-btn {
+  background-color: var(--create-folder-btn);
+}
+
+.input-field {
+  background-color: var(--input-field);
+}
+
+.folder-name {
+  color: var(--filepath);
 }

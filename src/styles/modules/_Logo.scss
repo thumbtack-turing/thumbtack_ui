@@ -1,4 +1,5 @@
-.logo {
+.logo-container,
+.logo-link {
   left: 0;
   @include wh(20%, 100%);
   @include flex-row();
@@ -6,7 +7,6 @@
   // align-items: center;
   flex-wrap: nowrap;
   // padding: 0 1rem;
-  background-color: $logo-background-color;
 }
 
 .logo-title {
