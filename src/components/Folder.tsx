@@ -82,7 +82,7 @@ const Folder = (props: FolderProps): JSX.Element => {
       />
       <Link to={ `/myfolders/${id}` } onClick={ handleClick } className='folder-link'>
         <article className='folder' ref={dropRef}>
-          <h3>{ name }</h3>
+          <h3 className='folder-link-name'>{ name }</h3>
         </article>
       </Link>
     </article>
