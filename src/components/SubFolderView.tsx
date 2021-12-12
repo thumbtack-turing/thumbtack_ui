@@ -9,10 +9,10 @@ import Error from './Error';
 import { Folder as FolderModel } from '../models/Folder';
 import { Resource as ResourceModel } from '../models/Resource';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
+import { generateLinks } from '../utilities/generateLinks';
 
 const SubFolderView = (): JSX.Element => {
   const { folderId } = useParams();
-  //console.log(folderId);
 
   const { loading, error, data } = useQuery(GET_FOLDER, {
     variables: { id: folderId }
@@ -39,7 +39,13 @@ const SubFolderView = (): JSX.Element => {
         </h2>
       )
     }
+  }
 
+  const parentId = folderData?.parentId;
+  const filePath = folderData?.filePath;
+  let filepathLinks;
+  if (folderData) {
+    filepathLinks = generateLinks(filePath, parentId);
   }
 
 return (
@@ -47,7 +53,8 @@ return (
     { loading && <Loading /> }
     { error && <Error /> }
     { data && <>
-      <h4 className='folder-name'> /{ folderData?.name } </h4>
+
+      <h4 className='folder-name'>{ filepathLinks }</h4>
       <section className='gallery-items'>
       { promptWhenEmpty() }
       { childFolderElements }

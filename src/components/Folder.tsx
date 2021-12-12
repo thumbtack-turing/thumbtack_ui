@@ -41,7 +41,6 @@ const Folder = (props: FolderProps): JSX.Element => {
   //const [resourceName, setResourceName] = useState('')
   const { id: oldFolderId } = currentFolderVar();
 
-  console.log('resourceReturnData', resourceReturnData)
   const parentFolder = resourceReturnData?.updateResource?.folder
   if(parentFolder) {
     console.log('parentfolder', parentFolder)

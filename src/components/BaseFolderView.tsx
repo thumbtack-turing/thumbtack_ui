@@ -6,14 +6,9 @@ import Folder from './Folder';
 import { Folder as FolderModel } from '../models/Folder';
 import { Resource as ResourceModel } from '../models/Resource';
 
-
-
-
 const BaseFolderView = (): JSX.Element => {
   const user = useReactiveVar(userVar);
   const baseFolderData = user.baseFolder;
-
-  
 
   if (baseFolderData) {
     currentFolderVar(baseFolderData);
@@ -38,13 +33,13 @@ const BaseFolderView = (): JSX.Element => {
 
   return (
     <section className='gallery'>
-      <h4 className='folder-name'> /{ baseFolderData?.name } </h4>
+      <h4 className='folder-name'>{ baseFolderData?.filePath }</h4>
       <section className='gallery-items'>
       { promptWhenEmpty() }
       { childFolderElements }
       { childResourceElements }
       </section>
-    </section> 
+    </section>
   )
 };
 

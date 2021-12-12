@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import CREATE_FOLDER from '../operations/mutations/CREATE_FOLDER';
+import plusIcon from '../assets/plus.png';
 
 const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
@@ -27,10 +28,7 @@ const CreateFolder = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // create new Folder from interface (post to GQL)
     createFolder();
-    // console.log(currentFolder.parentId);
-    // store new Folder in the cache?
     setShowing(false);
     setName('');
   }
@@ -38,9 +36,14 @@ const CreateFolder = (): JSX.Element => {
   return (
     <article className='create-container'>
       <button
-      className='add-folder-btn'
+      className='add-btn add-folder-btn'
       onClick={ toggleVisibility }
       >
+        <img
+          className='plus-icon'
+          src={ plusIcon }
+          alt='plus-icon'
+        />
         add new folder
       </button>
       {
@@ -51,12 +54,12 @@ const CreateFolder = (): JSX.Element => {
           >
             <input
               type='text'
-              placeholder='folder name'
+              placeholder='folder name...'
               onChange={ handleChange }
               required
-              className='folder-name-input'
+              className='folder-name-input input-field'
             />
-            <button className='submit-create-folder-btn'>
+            <button className='submit-create-btn create-folder-btn'>
               create
             </button>
           </form>

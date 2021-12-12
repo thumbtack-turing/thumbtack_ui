@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { currentFolderVar } from '../client/cache';
 import CREATE_RESOURCE from '../operations/mutations/CREATE_RESOURCE';
+import plusIcon from '../assets/plus.png';
 
 const CreateResource = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
@@ -13,7 +14,6 @@ const CreateResource = (): JSX.Element => {
       folderId, name, url
     }
   });
-  // console.log(folderId)
 
   const toggleVisibility = () => {
     setShowing(!showing);
@@ -30,10 +30,7 @@ const CreateResource = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // create new Resource from interface (post to GQL)
     createResource();
-    // console.log(currentFolder.parentId);
-    // store new Resource in the cache??
     setShowing(false);
     setName('');
     setUrl('');
@@ -43,8 +40,13 @@ const CreateResource = (): JSX.Element => {
     <article className='create-container'>
       <button
       onClick={ toggleVisibility }
-      className='add-resource-btn'
+      className='add-btn add-resource-btn'
       >
+        <img
+          className='plus-icon'
+          src={ plusIcon }
+          alt='plus-icon'
+        />
         add new resource
       </button>
       {
@@ -56,20 +58,20 @@ const CreateResource = (): JSX.Element => {
             <input
               type='text'
               name='name'
-              placeholder='name'
+              placeholder='name...'
               onChange={ handleChange }
               required
-              className='resource-name-input'
+              className='resource-name-input input-field'
             />
             <input
               type='text'
               name='url'
-              placeholder='url'
+              placeholder='url...'
               onChange={ handleChange }
               required
-              className='resource-url-input'
+              className='resource-url-input input-field'
             />
-            <button className='submit-create-resource-btn'>
+            <button className='submit-create-btn create-resource-btn'>
               create
             </button>
           </form>
