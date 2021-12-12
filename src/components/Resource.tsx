@@ -5,6 +5,10 @@ import { useMutation } from '@apollo/client';
 import { Resource as ResourceProps } from '../models/Resource';
 import closeIcon from '../assets/button-close-icon-645944.png';
 import DELETE_RESOURCE from '../operations/mutations/DELETE_RESOURCE';
+import edit from '../assets/edit.png'
+import moveUp from '../assets/move-up.png'
+import trash from '../assets/trash.png'
+import move from '../assets/move.png'
 
 const Resource = ({
   id, name, url, image, createdAt
@@ -32,24 +36,43 @@ const Resource = ({
       ref={drag}
       style={{
         opacity: isDragging ? 0.5 : 1,
-        fontSize: 25,
-        fontWeight: 'bold',
-        cursor: 'move',
+        cursor: 'move'
       }}
     >
-      <article className='resource-container'>
-        <input
-          type='image'
-          src={ closeIcon }
-          alt='close icon'
-          onClick={ handleClose }
-          className='close-icon'
-        />
-        <a href={ url } target='_blank' rel='noopener noreferrer' className='resource-link'>
-          <article className='resource' style={{ backgroundImage: `url(${image})` }}>
+      <article className='resource-container' >
+          {/* <article className='resource' style={{ backgroundImage: `url(${image})` }}> */}
+          <div className="img-container">
+            <a href={ url } target='_blank' rel='noopener noreferrer' className='resource-link'>
+              <img src={ move } alt="move" className="move-icon" />
+              <img src={ image } alt="website image" className="resource-img" />
+            </a>
+          </div>
+          <div className="des-container">
+            <div className="icons">
+              <input
+              type='image'
+              src={ edit }
+              alt='edit icon'
+              className='icon'
+              />
+              <input
+              type='image'
+              src={ trash }
+              alt='close icon'
+              onClick={ handleClose }
+              className='icon'
+              />
+              <input
+              type='image'
+              src={ moveUp }
+              alt='move up icon'
+              className='icon'
+              />
+            </div>
             <h3>{ name }</h3>
-          </article>
-        </a>
+          </div>
+          {/* </article> */}
+       
       </article>
     </div>
   )

@@ -12,6 +12,7 @@ import { idText } from 'typescript';
 import { resourceUsage } from 'process';
 import DELETE_FOLDER from '../operations/mutations/DELETE_FOLDER';
 import closeIcon from '../assets/button-close-icon-645944.png';
+import { GET_CURRENT_FOLDER } from '../operations/read/GET_CURRENT_FOLDER';
 
 const Folder = (props: FolderProps): JSX.Element => {
   const { id, name } = props;
@@ -38,23 +39,25 @@ const Folder = (props: FolderProps): JSX.Element => {
   //const [resourceId, setResourceId] = useState(0)
   const { id: oldFolderId } = currentFolderVar()
  //const [resourceName, setResourceName] = useState('')
-  const [updateResource, { loading, error, data: resourceReturnData}] = useMutation(UPDATE_RESOURCE);
+  const [updateResource, { loading, error, data: resourceReturnData}] = useMutation(UPDATE_RESOURCE, {
+    refetchQueries: [ GET_FOLDER, 'getFolder'],
+  },);
 
-  console.log('resourceReturnData', resourceReturnData)
-  const parentFolder = resourceReturnData?.updateResource?.folder
-  if(parentFolder) {
-    console.log('parentfolder', parentFolder)
-  } 
+  // console.log('resourceReturnData', resourceReturnData)
+  // const parentFolder = resourceReturnData?.updateResource?.folder
+  // if(parentFolder) {
+  //   console.log('parentfolder', parentFolder)
+  // } 
 
   const handleDrop = (item: any) => {
     // let draggedResourceId = Number(item.id)
     updateResource({ variables: { id: item.id, folderId: oldFolderId, newFolderId: id } })
-     .then((res: any) => res.data.updateResource.folder)
-    //.then(data => console.log(data))
-      .then(parentFolder => {
-        console.log('currentfoldervar1', currentFolderVar())
-        currentFolderVar(parentFolder)})
-      .then(() => console.log('currentfoldervar2', currentFolderVar()))
+    //  .then((res: any) => res.data.updateResource.folder)
+    // //.then(data => console.log(data))
+    //   .then(parentFolder => {
+    //     console.log('currentfoldervar1', currentFolderVar())
+    //     currentFolderVar(parentFolder)})
+    //   .then(() => console.log('currentfoldervar2', currentFolderVar()))
     // clearState()
   }
 
@@ -80,7 +83,7 @@ const Folder = (props: FolderProps): JSX.Element => {
         src={ closeIcon }
         alt='close icon'
         onClick={ handleClose }
-        className='close-icon'
+        className='icon'
       />
       <Link to={ `/myfolders/${id}` } onClick={ handleClick } className='folder-link'>
         <article className='folder' ref={dropRef}>
