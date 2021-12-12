@@ -3,34 +3,38 @@ import { NavLink } from 'react-router-dom';
 
 const Menu = () => {
   return (
-    <nav className="menu">
+    <nav className='menu'>
       <NavLink to='/'
         className='navlink'
       >
-        Home
+        home
       </NavLink>
+      <p className='menu-divider'>•</p>
       <NavLink to='/myfolders'
         className='navlink'
       >
-        App
+        app
       </NavLink>
+      <p className='menu-divider'>•</p>
       <NavLink to='/features'
         className='navlink'
       >
-        Features
+        features
       </NavLink>
+      <p className='menu-divider'>•</p>
       <NavLink to='/about'
         className='navlink'
       >
-        About
+        about
       </NavLink>
+      <p className='menu-divider'>•</p>
       <NavLink to='/meet-the-team'
         className='navlink'
       >
-        Meet the Team
+        meet the team
       </NavLink>
     </nav>
   )
 }
 
-export default Menu
+export default Menu;
