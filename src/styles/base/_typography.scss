@@ -1,10 +1,31 @@
-$main-font: 'Raleway', sans-serif;
+$main-font: $raleway;
+$logo-font: $raleway;
+$navlink-font: $comfortaa;
 
 .logo-title {
-  font-size: 2.5rem;
-  color: $logo-font-color;
+  font-family: $logo-font;
+  font-size: 3rem;
 }
 
 .navlink {
+  font-family: $navlink-font;
   font-size: 1.5rem;
+}
+
+.username {
+  font-family: $pacifico;
+  font-size: 4rem;
+}
+
+.create-container {
+  font-family: $josefin;
+}
+
+.folder-name {
+  font-family: $josefin;
+  font-size: 2rem;
+}
+
+.filepath-current-folder {
+  font-weight: bolder;
 }
