@@ -1,5 +1,5 @@
 .gallery {
-  margin-top: 5rem;
+  // margin-top: 5rem;
   @include wh(100%, 100%);
   @include flex-row();
   align-items: center;
@@ -10,10 +10,9 @@
 .folder-name {
   position: sticky;
   position: -webkit-sticky;
-  top: 0rem;
   width: 100%;
-  background-color: white;
-  font-size: 2rem;
+  top: 0rem;
+  padding: 1rem 0 0 1rem;
 }
 
 .gallery-items {
@@ -25,4 +24,3 @@
   // overflow-y: scroll;
   margin: 0 2rem;
 }
-
