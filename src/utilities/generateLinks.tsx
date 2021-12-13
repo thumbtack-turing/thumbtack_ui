@@ -8,6 +8,7 @@ export const generateLinks = (filePath: string, parentId: number) => {
         return;
       } else if (index === 1) { // always base folder
         return <Link
+          key={ index }
           to='/myfolders'
           className='filepath-link'
         >
@@ -22,6 +23,7 @@ export const generateLinks = (filePath: string, parentId: number) => {
         </>;
       } else if (index === array.length - 2) { // direct parent folder
         return <Link
+          key={ index }
           to={ `/myfolders/${ parentId } `}
           className='filepath-link'
         >
