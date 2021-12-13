@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ItemTypes } from '../constants/ItemTypes'
 import { useDrag } from 'react-dnd'
 import { useMutation } from '@apollo/client';
@@ -9,10 +9,9 @@ import edit from '../assets/edit.png'
 import moveUp from '../assets/move-up.png'
 import trash from '../assets/trash.png'
 import move from '../assets/move.png'
+import ResourceTextEditor from './ResourceTextEditor';
 
-const Resource = ({
-  id, name, url, image, createdAt
-}: ResourceProps): JSX.Element => {
+const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element => {
 
   const [{isDragging}, drag] = useDrag(() => ({
     item: { id, name, type: 'resource' }, 
@@ -30,6 +29,14 @@ const Resource = ({
     deleteResource();
     console.log('resource id', id);
   }
+
+  const [textOpen, setTextOpenState] = useState(false)
+
+  const openText = () => {
+    setTextOpenState(true)
+  }
+
+  const changeResourceName = textOpen ? <ResourceTextEditor /> : <h3>{ name }</h3>
 
   return (
     <div
@@ -53,6 +60,7 @@ const Resource = ({
               type='image'
               src={ edit }
               alt='edit icon'
+              onClick={ openText }
               className='icon'
               />
               <input
@@ -69,7 +77,7 @@ const Resource = ({
               className='icon'
               />
             </div>
-            <h3>{ name }</h3>
+            {changeResourceName}
           </div>
           {/* </article> */}
        
