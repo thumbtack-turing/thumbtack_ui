@@ -6,6 +6,6 @@ declare module '*.mp4' {
 }
 
 declare module 'react-animate-on-scroll' {
-  const src: string;
+  const src: any;
   export default src;
 }
