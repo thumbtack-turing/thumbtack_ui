@@ -1,5 +1,5 @@
-import React from 'react';
-import { useReactiveVar } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
+import { useReactiveVar, useMutation } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import Resource from './Resource';
 import Folder from './Folder';
@@ -15,7 +15,7 @@ const BaseFolderView = (): JSX.Element => {
   }
 
   const childFolderElements = baseFolderData?.childFolders.map((folder: FolderModel) =>
-    <Folder key={ folder.id } { ...folder } />
+    <Folder key={ folder.id } { ...folder }/>
   )
   const childResourceElements = baseFolderData?.childResources.map((resource: ResourceModel) =>
     <Resource key={ resource.id } { ...resource } />
@@ -33,7 +33,9 @@ const BaseFolderView = (): JSX.Element => {
 
   return (
     <section className='gallery'>
-      <h4 className='folder-name'> /{ baseFolderData?.name } </h4>
+      <article className='folder-name-container'>
+        <h4 className='folder-name'>{ baseFolderData?.filePath }</h4>
+      </article>
       <section className='gallery-items'>
       { promptWhenEmpty() }
       { childFolderElements }

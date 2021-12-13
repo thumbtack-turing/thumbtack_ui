@@ -1,0 +1,28 @@
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: fit-content;
+  z-index: 3;
+  font-family: $main-font;
+  font-size: 30px;
+  font-weight: $main-font-bold;
+}
+
+.feature-icon {
+  height: 50px;
+  width: auto;
+}
+
+.feature-story {
+  color: $feature-font-color;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.feature-des {
+  font-weight: $main-font-light;
+  font-size: 18px;
+}

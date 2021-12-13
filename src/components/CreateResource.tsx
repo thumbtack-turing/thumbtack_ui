@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { currentFolderVar } from '../client/cache';
 import CREATE_RESOURCE from '../operations/mutations/CREATE_RESOURCE';
+import plusIcon from '../assets/plus.png';
 
 const CreateResource = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
+  const [ animation, setAnimation ] = useState('OutUp');
+
   const [ url, setUrl ] = useState('');
   const { id: folderId } = useReactiveVar(currentFolderVar);
   const [ createResource ] = useMutation(CREATE_RESOURCE, {
@@ -13,11 +16,12 @@ const CreateResource = (): JSX.Element => {
       folderId, name, url
     }
   });
-  // console.log(folderId)
 
   const toggleVisibility = () => {
-    setShowing(!showing);
+    const newAnimation = showing ? 'OutUp' : 'InDown';
+    setAnimation(newAnimation);
     setUrl('');
+    setShowing(!showing);
   }
 
   const handleChange = (event: any) => {
@@ -30,10 +34,7 @@ const CreateResource = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // create new Resource from interface (post to GQL)
     createResource();
-    // console.log(currentFolder.parentId);
-    // store new Resource in the cache??
     setShowing(false);
     setName('');
     setUrl('');
@@ -42,10 +43,15 @@ const CreateResource = (): JSX.Element => {
   return (
     <article className='create-container'>
       <button
-      onClick={ toggleVisibility }
-      className='add-resource-btn'
+        onClick={ toggleVisibility }
+        className='add-btn add-resource-btn'
       >
-        add new resource
+        <img
+          className='plus-icon'
+          src={ plusIcon }
+          alt='plus-icon'
+        />
+        <p className='add-btn-text'>add new resource</p>
       </button>
       {
         showing &&
@@ -56,20 +62,20 @@ const CreateResource = (): JSX.Element => {
             <input
               type='text'
               name='name'
-              placeholder='name'
+              placeholder='name...'
               onChange={ handleChange }
               required
-              className='resource-name-input'
+              className={`resource-name-input input-field animate__animated animate__slide${animation}`}
             />
             <input
               type='text'
               name='url'
-              placeholder='url'
+              placeholder='url...'
               onChange={ handleChange }
               required
-              className='resource-url-input'
+              className={`resource-url-input input-field animate__animated animate__slide${animation}`}
             />
-            <button className='submit-create-resource-btn'>
+            <button className={`submit-create-btn create-resource-btn animate__animated animate__slide${animation}`}>
               create
             </button>
           </form>

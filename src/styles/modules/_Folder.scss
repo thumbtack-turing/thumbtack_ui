@@ -1,11 +1,22 @@
 .folder-container {
   margin: 1rem;
+  @include wh(8.5rem, 7rem);
+}
+
+.folder-link-name {
+  @include max-wh();
 }
 
 .folder {
-  @include wh(10rem, 10rem);
-  background-image: url('../../assets/medium-blue-folder-hi.png');
-  background-size: cover;
+  @include wh(10rem, 8.75rem);
+  @include flex-row();
+  @include center-xy();
+  // @include max-wh();
+  background-image: url('../../assets/folder.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  // background-position-x: 60%;
+  // background-position-y: 50%;
 }
 
 .close-icon {

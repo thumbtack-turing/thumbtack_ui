@@ -1,3 +1,35 @@
-h1 {
+$main-font: $raleway;
+$logo-font: $raleway;
+$navlink-font: $comfortaa;
+
+.logo-title {
+  font-family: $logo-font;
   font-size: 3rem;
+}
+
+.navlink {
+  font-family: $navlink-font;
+  font-size: 1.5rem;
+}
+
+.username {
+  font-family: $pacifico;
+  font-size: 4rem;
+}
+
+.add-form {
+  font-family: $josefin;
+  font-size: 1.5rem;
+}
+
+// .create-container {
+// }
+
+.folder-name {
+  font-family: $josefin;
+  font-size: 2rem;
+}
+
+.filepath-current-folder {
+  font-weight: bolder;
 }

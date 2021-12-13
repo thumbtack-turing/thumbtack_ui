@@ -1,27 +1,33 @@
 .gallery {
-  margin-top: 5rem;
   @include wh(100%, 100%);
   @include flex-row();
-  align-items: center;
+  // margin-top: -6rem;
+  // align-items: center;
   flex-wrap: wrap;
   overflow-y: scroll;
 }
 
-.folder-name {
+.folder-name-container {
   position: sticky;
   position: -webkit-sticky;
-  top: 0rem;
   width: 100%;
-  background-color: white;
-  font-size: 2rem;
+  top: 0rem;
+  padding: 0 0 .5rem 1rem;
+  // margin-top: -11rem;
+  // padding-left: 1rem;
+  // z-index: 1;
+}
+
+.folder-name {
+  padding-top: .2rem;
 }
 
 .gallery-items {
-  @include wh(100%, 100%);
+  @include wh(100%, 95%);
   @include flex-row();
   @include center-xy();
   justify-content: space-around;
   flex-wrap: wrap;
   // overflow-y: scroll;
-  margin: 0 2rem;
+  margin: 2rem 2rem 0 2rem;
 }

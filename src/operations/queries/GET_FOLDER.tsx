@@ -7,7 +7,7 @@ export const GET_FOLDER = gql`
       name
       base
       parentId
-      # filePath
+      filePath
       childFolders {
         id
         name
