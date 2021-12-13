@@ -1,19 +1,30 @@
 .name-and-form-container {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0rem;
-  @include wh(100%, 12rem);
+  // position: sticky;
+  // position: -webkit-sticky;
+  // top: 0rem;
+  // @include wh(100%, 12rem);
+  // @include wh(100%, 17rem);
+  width: 100%;
   @include flex-column();
   align-items: center;
-  justify-content: space-around;
+  // justify-content: space-around;
   margin-top: 5rem;
-  z-index: 1;
+}
+
+.username {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  z-index: 2;
 }
 
 .add-form {
-  @include wh(30%, .1rem);
+  // width: 30%;
+  @include wh(30%, 8rem);
   @include flex-row();
+  // margin-top: -2rem;
   padding-bottom: 1rem;
+  overflow: hidden;
+  z-index: 2;
   // @include center-xy();
   // justify-content: flex-start;
 }
@@ -22,11 +33,17 @@
   @include flex-row();
   @include center-xy();
   @include button();
+  // padding-top: .2rem;
+  z-index: 1;
 }
 
 .plus-icon {
   @include wh(1rem, 1rem);
   padding-right: .25rem;
+}
+
+.add-btn-text {
+  padding-top: .1rem;
 }
 
 .input-field {
@@ -35,7 +52,7 @@
 }
 
 .resource-name-input {
-  border-bottom: 1px solid $rich-black-fogra;
+  border-bottom: 1px solid $slate-gray-dark;
 }
 
 .submit-create-btn {
