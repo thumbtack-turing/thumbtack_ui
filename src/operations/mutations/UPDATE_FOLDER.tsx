@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 const UPDATE_FOLDER = gql`
   mutation updateFolder (
     $id: ID!,
-    $newParentId: ID!,
+    $newParentId: ID,
     $name: String 
   ) {
     updateFolder (

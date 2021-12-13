@@ -11,6 +11,12 @@ import trash from '../assets/trash.png'
 import move from '../assets/move.png'
 import ResourceTextEditor from './ResourceTextEditor';
 
+export interface ResourceDetails {
+  id: any;
+  name: string;
+  setTextOpenState: Function;
+}
+
 const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element => {
 
   const [{isDragging}, drag] = useDrag(() => ({
@@ -36,7 +42,8 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
     setTextOpenState(true)
   }
 
-  const changeResourceName = textOpen ? <ResourceTextEditor /> : <h3>{ name }</h3>
+  //trying to pass resource props, need to get folderid?
+  const changeResourceName = textOpen ? <ResourceTextEditor id={id} setTextOpenState={setTextOpenState} name={name}/> : <h3>{ name }</h3>
 
   return (
     <div
@@ -79,8 +86,7 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
             </div>
             {changeResourceName}
           </div>
-          {/* </article> */}
-       
+      
       </article>
     </div>
   )
