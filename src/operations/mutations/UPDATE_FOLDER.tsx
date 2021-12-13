@@ -1,25 +1,30 @@
 import { gql } from '@apollo/client';
 
 const UPDATE_FOLDER = gql`
-  mutation updateFolder(
-    $id: Number!,
-    $name: String!,
-    $base: Boolean!,
-    $parentId: Number!,
-    $childFolders: Folder[],
-    $childResources: Resource[]
+  mutation updateFolder (
+    $id: ID!,
+    $newParentId: ID!,
+    $name: String 
   ) {
-    updateFolder(
+    updateFolder (
       id: $id,
       name: $name,
-      base: $base,
-      parentId: $parentId,
-      childFolders: $childFolders,
-      childResources: $childResources
-    ) {
-      // response
+      newParentId: $newParentId
+  ) {
+    originalParent {
+      id
+      name
+      base
+      childFolders {
+        id
+        name
+        base
+        parentId
+      }
     }
+    errors
   }
+}
 `;
 
 export default UPDATE_FOLDER;

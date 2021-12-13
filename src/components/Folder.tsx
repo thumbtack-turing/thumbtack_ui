@@ -8,11 +8,14 @@ import { useDrop } from 'react-dnd'
 import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
 import { gql } from '@apollo/client';
 import { Folder as FolderProps } from '../models/Folder';
-import { idText } from 'typescript';
+import { collapseTextChangeRangesAcrossMultipleVersions, getTsBuildInfoEmitOutputFilePath, idText } from 'typescript';
 import { resourceUsage } from 'process';
 import DELETE_FOLDER from '../operations/mutations/DELETE_FOLDER';
 import closeIcon from '../assets/button-close-icon-645944.png';
 import { GET_CURRENT_FOLDER } from '../operations/read/GET_CURRENT_FOLDER';
+import { GET_USER } from '../operations/queries/GET_USER';
+import { useDrag } from 'react-dnd'
+import UPDATE_FOLDER from '../operations/mutations/UPDATE_FOLDER';
 
 const Folder = (props: FolderProps): JSX.Element => {
   const { id, name } = props;
@@ -29,7 +32,6 @@ const Folder = (props: FolderProps): JSX.Element => {
 
   const handleClose = () => {
     deleteFolder();
-    console.log('folder id', id);
   }
 
   const handleClick = () => {
@@ -40,8 +42,12 @@ const Folder = (props: FolderProps): JSX.Element => {
   const { id: oldFolderId } = currentFolderVar()
  //const [resourceName, setResourceName] = useState('')
   const [updateResource, { loading, error, data: resourceReturnData}] = useMutation(UPDATE_RESOURCE, {
-    refetchQueries: [ GET_FOLDER, 'getFolder'],
+    refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   },);
+
+  const [ updateFolder ] = useMutation(UPDATE_FOLDER, {
+    refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ]
+  })
 
   // console.log('resourceReturnData', resourceReturnData)
   // const parentFolder = resourceReturnData?.updateResource?.folder
@@ -51,7 +57,23 @@ const Folder = (props: FolderProps): JSX.Element => {
 
   const handleDrop = (item: any) => {
     // let draggedResourceId = Number(item.id)
-    updateResource({ variables: { id: item.id, folderId: oldFolderId, newFolderId: id } })
+    console.log(item.type)
+
+    if(item.type === 'folder') {
+      console.log('item', item)
+      updateFolder({ variables: {id: item.id, newParentId: id, name: item.name}})
+    } else {
+      console.log('item', item)
+      updateResource({ variables: { id: item.id, folderId: oldFolderId, newFolderId: id } })
+    }
+
+    // console.log('item', item)
+    // if(item.__typename === 'folder') {
+     
+    // } else {
+    // }
+    
+   
     //  .then((res: any) => res.data.updateResource.folder)
     // //.then(data => console.log(data))
     //   .then(parentFolder => {
@@ -66,18 +88,28 @@ const Folder = (props: FolderProps): JSX.Element => {
   //   setResourceName('')
   // }
 
+  //***** need to have state for itemType. if resource update state to resource, if folder update state to folder. accept VVV will be set to state?
   const [ { isOver }, dropRef] = useDrop(() => ({
-    accept: ItemTypes.RESOURCE,
+    accept: ItemTypes.BOTH,
     drop: (item: any) => handleDrop(item),
     collect: (monitor) => ({
       isOver: monitor.isOver()
     })
   }))
- 
 
+
+  const [{isDragging}, drag, collect] = useDrag(() => ({
+    item: { id, name, type: 'folder' }, 
+    type: ItemTypes.BOTH,
+    collect: monitor => ({
+      isDragging: !!monitor.isDragging(),
+      getItem: monitor.getItem(),
+      getItemType: monitor.getItemType()
+    })
+  }))
 
   return (
-    <article className='folder-container'>
+    <article className='folder-container' ref={drag}  >
       <input
         type='image'
         src={ closeIcon }

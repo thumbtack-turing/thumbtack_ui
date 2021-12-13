@@ -7,7 +7,6 @@ const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
   const { id } = useReactiveVar(currentFolderVar);
-  console.log(currentFolderVar())
   const { id: userId } = useReactiveVar(userVar);
 
   const [ createFolder ] = useMutation(CREATE_FOLDER, {

@@ -15,8 +15,8 @@ const Resource = ({
 }: ResourceProps): JSX.Element => {
 
   const [{isDragging}, drag] = useDrag(() => ({
-    item: { id, name }, 
-    type: ItemTypes.RESOURCE,
+    item: { id, name, type: 'resource' }, 
+    type: ItemTypes.BOTH,
     collect: monitor => ({
       isDragging: !!monitor.isDragging(),
     }),
