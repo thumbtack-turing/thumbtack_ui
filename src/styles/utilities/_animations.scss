@@ -1,0 +1,29 @@
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -300%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+}
+
+@keyframes slideOutUp {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(0, -300%, 0);
+  }
+}
+
+.slideOutUp {
+  animation-name: slideOutUp;
+}

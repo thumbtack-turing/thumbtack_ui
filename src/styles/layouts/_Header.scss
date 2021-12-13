@@ -1,13 +1,7 @@
 .header {
-  width: 100%;
-  height: 80px;
-  background-color: $header-background;
-  font-family: $main-font;
-  font-weight: $main-font-bold;
-  color: $main-font-color;
   position: fixed;
-  display: flex;
-  flex-direction: row;
+  @include flex-row();
+  @include wh(100%, 5rem);
   justify-content: space-between;
   z-index: 4;
 }

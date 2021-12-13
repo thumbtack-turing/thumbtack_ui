@@ -11,7 +11,7 @@ export const GET_USER = gql`
         name
         base
         parentId
-        # filePath
+        filePath
         childFolders {
           id
           name

@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import CREATE_FOLDER from '../operations/mutations/CREATE_FOLDER';
+import plusIcon from '../assets/plus.png';
 
 const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
+
   const { id } = useReactiveVar(currentFolderVar);
   const { id: userId } = useReactiveVar(userVar);
 
@@ -26,10 +28,7 @@ const CreateFolder = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    // create new Folder from interface (post to GQL)
     createFolder();
-    // console.log(currentFolder.parentId);
-    // store new Folder in the cache?
     setShowing(false);
     setName('');
   }
@@ -37,10 +36,15 @@ const CreateFolder = (): JSX.Element => {
   return (
     <article className='create-container'>
       <button
-      className='add-folder-btn'
-      onClick={ toggleVisibility }
+        className='add-btn add-folder-btn'
+        onClick={ toggleVisibility }
       >
-        add new folder
+        <img
+          className='plus-icon'
+          src={ plusIcon }
+          alt='plus-icon'
+        />
+        <p className='add-btn-text'>add new folder</p>
       </button>
       {
         showing &&
@@ -50,12 +54,12 @@ const CreateFolder = (): JSX.Element => {
           >
             <input
               type='text'
-              placeholder='folder name'
+              placeholder='folder name...'
               onChange={ handleChange }
               required
-              className='folder-name-input'
+              className='folder-name-input input-field animate__animated animate__slideInDown'
             />
-            <button className='submit-create-folder-btn'>
+            <button className='submit-create-btn create-folder-btn animate__animated animate__slideInDown'>
               create
             </button>
           </form>

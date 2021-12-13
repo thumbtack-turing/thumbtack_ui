@@ -1,21 +1,17 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
+import { useDrop } from 'react-dnd';
 import { currentFolderVar } from '../client/cache';
-import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 import { ItemTypes } from '../constants/ItemTypes';
-import { useDrop } from 'react-dnd'
-import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
-import { gql } from '@apollo/client';
 import { Folder as FolderProps } from '../models/Folder';
-import { collapseTextChangeRangesAcrossMultipleVersions, getTsBuildInfoEmitOutputFilePath, idText } from 'typescript';
-import { resourceUsage } from 'process';
 import DELETE_FOLDER from '../operations/mutations/DELETE_FOLDER';
 import closeIcon from '../assets/button-close-icon-645944.png';
-import { GET_CURRENT_FOLDER } from '../operations/read/GET_CURRENT_FOLDER';
 import { GET_USER } from '../operations/queries/GET_USER';
 import { useDrag } from 'react-dnd'
 import UPDATE_FOLDER from '../operations/mutations/UPDATE_FOLDER';
+import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
+import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
 
 const Folder = (props: FolderProps): JSX.Element => {
   const { id, name } = props;
@@ -23,12 +19,11 @@ const Folder = (props: FolderProps): JSX.Element => {
   const { data } = useQuery(GET_FOLDER, {
     variables: { id }
   });
-
-  const completeFolderData = data?.getFolder;
-
   const [ deleteFolder ] = useMutation(DELETE_FOLDER, {
     variables: { id }
   });
+
+  const completeFolderData = data?.getFolder;
 
   const handleClose = () => {
     deleteFolder();
@@ -119,7 +114,7 @@ const Folder = (props: FolderProps): JSX.Element => {
       />
       <Link to={ `/myfolders/${id}` } onClick={ handleClick } className='folder-link'>
         <article className='folder' ref={dropRef}>
-          <h3>{ name }</h3>
+          <h3 className='folder-link-name'>{ name }</h3>
         </article>
       </Link>
     </article>

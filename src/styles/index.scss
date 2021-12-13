@@ -2,10 +2,12 @@
 @import 'utilities/_normalize';
 @import 'utilities/_reset';
 @import 'utilities/_responsive';
+@import 'utilities/_animations';
 
 // base
 @import 'base/_variables';
 @import 'base/_mixins';
+@import 'base/_fonts';
 @import 'base/_typography';
 @import 'base/_palettes';
 @import 'base/_themes';
@@ -13,8 +15,6 @@
 // layouts
 @import 'layouts/_base-layout';
 @import 'layouts/_Header';
-@import 'layouts/_Logo';
-@import 'layouts/_Menu';
 @import 'layouts/_LandingBlock1';
 @import 'layouts/_LandingBlock2';
 @import 'layouts/_Features';
@@ -31,3 +31,6 @@
 @import 'modules/_Folder';
 @import 'modules/_Resource';
 @import 'modules/_Loading';
+@import 'modules/_Logo';
+@import 'modules/_Menu';
+@import 'modules/_LightDarkModeToggle';

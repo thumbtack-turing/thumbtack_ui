@@ -1,18 +1,3 @@
-# version: 2.1
-# orbs:
-#   cypress: cypress-io/cypress@1.29.0
-# workflows:
-#   build:
-#     jobs:
-#       - cypress/install
-#       - cypress/run:
-#           requires:
-#             - cypress/install
-#           start: 'npm start' # start server before running tests
-
-
-
-
 version: 2.1
 orbs: #CircleCI orbs are shareable packages of configuration elements, including jobs, commands, and executors. Orbs make writing and customizing CircleCI config simple.
   cypress: cypress-io/cypress@1.29.0 # Has all dependencies we need to run our tests

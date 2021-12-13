@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useReactiveVar, useMutation } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import Resource from './Resource';
@@ -6,14 +6,9 @@ import Folder from './Folder';
 import { Folder as FolderModel } from '../models/Folder';
 import { Resource as ResourceModel } from '../models/Resource';
 
-
-
-
 const BaseFolderView = (): JSX.Element => {
   const user = useReactiveVar(userVar);
   const baseFolderData = user.baseFolder;
-
-  
 
   if (baseFolderData) {
     currentFolderVar(baseFolderData);
@@ -38,13 +33,15 @@ const BaseFolderView = (): JSX.Element => {
 
   return (
     <section className='gallery'>
-      <h4 className='folder-name'> /{ baseFolderData?.name } </h4>
+      <article className='folder-name-container'>
+        <h4 className='folder-name'>{ baseFolderData?.filePath }</h4>
+      </article>
       <section className='gallery-items'>
       { promptWhenEmpty() }
       { childFolderElements }
       { childResourceElements }
       </section>
-    </section> 
+    </section>
   )
 };
 

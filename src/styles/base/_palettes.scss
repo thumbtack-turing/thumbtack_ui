@@ -6,6 +6,11 @@ $light-gray: #D6D5DB;
 $lavender-blush: #E1D3D6;
 $pale-pink-dark: #EBD0D1;
 $pale-pink-light: #EDD4D5;
+$blue-crayola: #0176F9;
+$little-boy-blue: #589EE5;
+$middle-blue-green: #7BDED7;
+$french-sky-blue: #5DA8FE;
+$celeste: #ADEBE7;
 
 // dark
 $rich-black-fogra: #121212;
@@ -18,3 +23,15 @@ $slate-gray-light: #768C96;
 $black-coral: #5E6572;
 $cadet-blue-crayola: #A9B4C2;
 $cultured: #EEF1EF;
+$raisin-black-dark: #1F1E2D;
+$raisin-black-light: #242636;
+
+// shadows
+$text-shadow-dark: 0px 3px 2px rgba(0, 0, 0, 0.3),
+                  0px 6px 7px rgba(0, 0, 0, 0.1),
+                  0px 12px 13px rgba(0, 0, 0, 0.1);
+$text-shadow-light: 0px 3px 2px rgba(110, 127, 138, 0.3),
+                  0px 6px 7px rgba(110, 127, 138, 0.1),
+                  0px 12px 13px rgba(110, 127, 138, 0.1);
+$box-shadow-dark: 0px 0px 32px 16px rgba(10, 10, 10, 0.1);
+$box-shadow-light: 0px 0px 32px 16px rgba(110, 127, 138, 0.1);

@@ -1,15 +1,40 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Menu = () => {
   return (
-    <div className="menu">
-      <h1 className="links">Home</h1>
-      <h1 className="links">App</h1>
-      <h1 className="links">Features</h1>
-      <h1 className="links">About</h1>
-      <h1 className="links">Meet the Team</h1>
-    </div>
+    <nav className='menu'>
+      <NavLink to='/'
+        className='navlink'
+      >
+        home
+      </NavLink>
+      <p className='menu-divider'>•</p>
+      <NavLink to='/myfolders'
+        className='navlink'
+      >
+        app
+      </NavLink>
+      <p className='menu-divider'>•</p>
+      <NavLink to='/features'
+        className='navlink'
+      >
+        features
+      </NavLink>
+      <p className='menu-divider'>•</p>
+      <NavLink to='/about'
+        className='navlink'
+      >
+        about
+      </NavLink>
+      <p className='menu-divider'>•</p>
+      <NavLink to='/meet-the-team'
+        className='navlink'
+      >
+        meet the team
+      </NavLink>
+    </nav>
   )
 }
 
-export default Menu
+export default Menu;
