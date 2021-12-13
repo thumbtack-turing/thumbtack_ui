@@ -2,6 +2,7 @@ import { InMemoryCache, ReactiveVar, makeVar } from '@apollo/client';
 import { User } from '../models/User';
 import { Folder } from '../models/Folder';
 import { Theme } from '../models/Theme';
+import { FilePath } from '../models/FilePath';
 
 const cache: InMemoryCache = new InMemoryCache({});
 
@@ -22,6 +23,10 @@ export const currentFolderVar: ReactiveVar<Folder> = makeVar<Folder>({
 
 export const currentThemeVar: ReactiveVar<Theme> = makeVar<Theme>({
   theme: 'light'
-})
+});
+
+export const currentFilePathVar: ReactiveVar<FilePath> = makeVar<FilePath>({
+  filePath: ''
+});
 
 export default cache;
