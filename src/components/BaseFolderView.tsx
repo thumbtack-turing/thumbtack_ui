@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useReactiveVar, useMutation } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import Resource from './Resource';
@@ -33,7 +33,9 @@ const BaseFolderView = (): JSX.Element => {
 
   return (
     <section className='gallery'>
-      <h4 className='folder-name'>{ baseFolderData?.filePath }</h4>
+      <article className='folder-name-container'>
+        <h4 className='folder-name'>{ baseFolderData?.filePath }</h4>
+      </article>
       <section className='gallery-items'>
       { promptWhenEmpty() }
       { childFolderElements }

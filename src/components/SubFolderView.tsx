@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { currentFolderVar } from '../client/cache';
+import { currentFolderVar, currentFilePathVar } from '../client/cache';
 import Resource from './Resource';
 import Folder from './Folder';
 import Loading from './Loading';
@@ -22,6 +22,7 @@ const SubFolderView = (): JSX.Element => {
 
   if (folderData) {
     currentFolderVar(folderData);
+    currentFilePathVar(folderData.filePath);
   }
 
   const childFolderElements = folderData?.childFolders?.map((folder: FolderModel) =>
@@ -53,8 +54,9 @@ return (
     { loading && <Loading /> }
     { error && <Error /> }
     { data && <>
-
-      <h4 className='folder-name'>{ filepathLinks }</h4>
+      <article className='folder-name-container'>
+        <h4 className='folder-name'>{ filepathLinks }</h4>
+      </article>
       <section className='gallery-items'>
       { promptWhenEmpty() }
       { childFolderElements }

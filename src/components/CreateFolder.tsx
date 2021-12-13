@@ -7,6 +7,7 @@ import plusIcon from '../assets/plus.png';
 const CreateFolder = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
+
   const { id } = useReactiveVar(currentFolderVar);
   console.log(currentFolderVar())
   const { id: userId } = useReactiveVar(userVar);
@@ -36,15 +37,15 @@ const CreateFolder = (): JSX.Element => {
   return (
     <article className='create-container'>
       <button
-      className='add-btn add-folder-btn'
-      onClick={ toggleVisibility }
+        className='add-btn add-folder-btn'
+        onClick={ toggleVisibility }
       >
         <img
           className='plus-icon'
           src={ plusIcon }
           alt='plus-icon'
         />
-        add new folder
+        <p className='add-btn-text'>add new folder</p>
       </button>
       {
         showing &&
@@ -57,9 +58,9 @@ const CreateFolder = (): JSX.Element => {
               placeholder='folder name...'
               onChange={ handleChange }
               required
-              className='folder-name-input input-field'
+              className='folder-name-input input-field animate__animated animate__slideInDown'
             />
-            <button className='submit-create-btn create-folder-btn'>
+            <button className='submit-create-btn create-folder-btn animate__animated animate__slideInDown'>
               create
             </button>
           </form>

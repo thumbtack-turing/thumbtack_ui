@@ -7,6 +7,8 @@ import plusIcon from '../assets/plus.png';
 const CreateResource = (): JSX.Element => {
   const [ showing, setShowing ] = useState(false);
   const [ name, setName ] = useState('');
+  const [ animation, setAnimation ] = useState('OutUp');
+
   const [ url, setUrl ] = useState('');
   const { id: folderId } = useReactiveVar(currentFolderVar);
   const [ createResource ] = useMutation(CREATE_RESOURCE, {
@@ -16,8 +18,10 @@ const CreateResource = (): JSX.Element => {
   });
 
   const toggleVisibility = () => {
-    setShowing(!showing);
+    const newAnimation = showing ? 'OutUp' : 'InDown';
+    setAnimation(newAnimation);
     setUrl('');
+    setShowing(!showing);
   }
 
   const handleChange = (event: any) => {
@@ -39,15 +43,15 @@ const CreateResource = (): JSX.Element => {
   return (
     <article className='create-container'>
       <button
-      onClick={ toggleVisibility }
-      className='add-btn add-resource-btn'
+        onClick={ toggleVisibility }
+        className='add-btn add-resource-btn'
       >
         <img
           className='plus-icon'
           src={ plusIcon }
           alt='plus-icon'
         />
-        add new resource
+        <p className='add-btn-text'>add new resource</p>
       </button>
       {
         showing &&
@@ -61,7 +65,7 @@ const CreateResource = (): JSX.Element => {
               placeholder='name...'
               onChange={ handleChange }
               required
-              className='resource-name-input input-field'
+              className={`resource-name-input input-field animate__animated animate__slide${animation}`}
             />
             <input
               type='text'
@@ -69,9 +73,9 @@ const CreateResource = (): JSX.Element => {
               placeholder='url...'
               onChange={ handleChange }
               required
-              className='resource-url-input input-field'
+              className={`resource-url-input input-field animate__animated animate__slide${animation}`}
             />
-            <button className='submit-create-btn create-resource-btn'>
+            <button className={`submit-create-btn create-resource-btn animate__animated animate__slide${animation}`}>
               create
             </button>
           </form>
