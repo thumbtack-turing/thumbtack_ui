@@ -1,9 +1,44 @@
 .resource-container {
+  position: relative;
   margin: 1rem;
+  border: black 3px solid;
+  @include wh(20rem, 25rem);
+  border-radius: 25px;
+  @include flex-column();
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
-.resource {
-  @include wh(10rem, 10rem);
-  // background-image: url('../../assets/PinClipart.com_caliper-clipart_1117848.png');
-  background-size: cover;
+.resource-img {
+  @include wh(100%, 75%);
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  position: absolute;
+}
+
+.img-container {
+  @include wh(100%, 75%);
+  
+}
+
+.des-container {
+  @include flex-column();
+  align-items: center;
+  justify-content: center;
+}
+
+.icons {
+  margin-top: 10px;
+}
+
+.move-icon {
+  position: absolute;
+  z-index: 2;
+  @include wh(40px, 40px);
+  right: 20px;
+  top: 10px;
+}
+
+.move-icon:hover {
+  cursor: move;
 }
