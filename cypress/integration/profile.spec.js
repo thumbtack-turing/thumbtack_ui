@@ -1,13 +1,40 @@
+import { aliasQuery, aliasMutation } from '../utils/graphql-test-utils';
+import mockUserData from '../fixtures/mockUserData.json';
+
 // temporary
 Cypress.on('uncaught:exception', (err, runnable) => {
-  return false
+  return false;
 })
 
 describe('profile page', () => {
   const url = 'localhost:3000/myfolders';
+  const uri = 'https://thumbtack-api.herokuapp.com/graphql';
 
   before(() => {
-    cy.visit(url)
+    // cy.intercept('POST', uri, (req) => {
+    //   aliasQuery(req, 'getUser')
+      // console.log(req.alias)
+    // })
+    // cy.intercept('POST', uri, (req) => {
+    //   console.log(req)
+    //   console.log(mockUserData)
+    //   if (req.body.operationName === 'getUser') {
+    //     req.alias = `gql${operationName}Query`
+    //     req.reply({ fixture: 'mockUserData'});
+    //     console.log(req.body.operationName)
+    //   }
+    // })
+    // })
+    // .then(interception => {
+    //     console.log(interception)
+    //     expect(interception).to.be.an('object')
+    //   })
+    //   .its('response.body.data.getUser')
+    //   .should('have.property', 'baseFolder')
+    //     .then(baseFolder => {
+    //       expect(baseFolder).to.be.an('object')
+    //     })
+    cy.visit(url);
   })
 
   it('should display the correct url when the profile page is visited', () => {
@@ -15,13 +42,16 @@ describe('profile page', () => {
   })
 
   it('should display the base folder when the page is visited', () => {
-    cy.get('.folder-name')
+    // cy.wait('@gqlgetUserQuery')
+      cy.get('.folder-name')
         .should('contain', 'base')
   })
 
   it('should display a gallery of items in the base folder', () => {
-    cy.get('.gallery-items')
-        .should('contain', 'folder')
+    // cy.get('.gallery-items')
+    //     .should('contain', 'folder-container')
+      cy.get('.folder-link')
+        .should('be.visible')
   })
 
   it('should display forms to create a resource or folder', () => {
@@ -41,7 +71,7 @@ describe('profile page', () => {
   })
 
   it('should display a created resource in the current folder', () => {
-    cy.get('.submit-create-resource-btn').click()
+    cy.get('.create-resource-btn').click()
       .get('.resource').last()
         .should('contain', 'hey')
   })
@@ -54,7 +84,7 @@ describe('profile page', () => {
   })
 
   it('should display a created folder in the current folder', () => {
-    cy.get('.submit-create-folder-btn').click()
+    cy.get('.create-folder-btn').click()
       .get('.folder').last()
         .should('contain', 'i am a folder')
   })

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "getUser": {
+      "id": "1",
+      "name": "Erika",
+      "email": "eak@example.com",
+      "baseFolder": {
+        "id": "1",
+        "name": "erika_base",
+        "base": true,
+        "parentId": null,
+        "filePath": "/erika_base",
+        "childFolders": [
+          {
+            "id": "2",
+            "name": "erika_sub1",
+            "base": false,
+            "parentId": "1",
+            "__typename": "Folder"
+          },
+          {
+            "id": "32",
+            "name": "yolo",
+            "base": false,
+            "parentId": "1",
+            "__typename": "Folder"
+          }
+        ],
+        "childResources": [],
+        "__typename": "Folder"
+      },
+      "__typename": "User"
+    }
+  }
+}
