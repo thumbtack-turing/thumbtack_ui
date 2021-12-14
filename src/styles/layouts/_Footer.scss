@@ -1,4 +1,46 @@
 footer {
   @include wh(100%, 286px);
+  @include flex-row();
   background-color: #EBD0D1;
+  color: white;
+  justify-content: space-around;
+  font-family: $josefin;
+  font-size: 25px;
+}
+
+.left-side-footer {
+  @include flex-column();
+  justify-content: center;
+}
+
+.links-top {
+  @include flex-row();
+}
+
+.links-bottom {
+  @include flex-row();
+}
+
+.thumbtack-footer {
+  @include wh(75px, auto);
+  margin-left: 50px;
+}
+
+.get-app {
+  @include flex-column();
+  justify-content: center;
+}
+
+.footer-link {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.fake-icon {
+  margin-top: 20px;
+}
+
+.fake-hover {
+  width: 100px;
+  border: 
 }
