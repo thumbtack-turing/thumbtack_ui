@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, HashRouter } from 'react-router-dom';
 
 const Menu = () => {
   return (
+
     <nav className='menu'>
       <NavLink to='/'
         className='navlink'
@@ -15,18 +16,9 @@ const Menu = () => {
       >
         app
       </NavLink>
-      <p className='menu-divider'>•</p>
-      <NavLink to='/features'
-        className='navlink'
-      >
-        features
-      </NavLink>
-      <p className='menu-divider'>•</p>
-      <NavLink to='/about'
-        className='navlink'
-      >
-        about
-      </NavLink>
+   
+   
+
       <p className='menu-divider'>•</p>
       <NavLink to='/meet-the-team'
         className='navlink'
@@ -34,6 +26,7 @@ const Menu = () => {
         meet the team
       </NavLink>
     </nav>
+
   )
 }
 

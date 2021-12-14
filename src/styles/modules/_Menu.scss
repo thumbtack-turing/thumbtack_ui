@@ -1,5 +1,5 @@
 .menu {
-  @include wh(50%, 100%);
+  @include wh(30%, 100%);
   @include flex-row();
   align-items: center;
   justify-content: space-between;
