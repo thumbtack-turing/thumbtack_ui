@@ -4,7 +4,7 @@
   // @include wh(100%, 100%);
   @include flex-row();
   @include center-xy();
-  @justify-content: space-between;
+  justify-content: space-between;
 }
 
 .light-dark-mode-label {
