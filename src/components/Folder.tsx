@@ -12,6 +12,15 @@ import { useDrag } from 'react-dnd'
 import UPDATE_FOLDER from '../operations/mutations/UPDATE_FOLDER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
+import edit from '../assets/edit.png'
+import FolderTextEditor from './FolderTextEditor';
+import folder2 from '../assets/folder2.png'
+
+export interface FolderDetails {
+  id: any;
+  setFolderEditorOpenState: Function;
+  name: string;
+}
 
 const Folder = (props: FolderProps): JSX.Element => {
   const { id, name } = props;
@@ -103,20 +112,31 @@ const Folder = (props: FolderProps): JSX.Element => {
     })
   }))
 
+  const [folderEditorOpen, setFolderEditorOpenState] = useState(false)
+  
+  const folderEditor = folderEditorOpen ? 
+  <FolderTextEditor id={id} setFolderEditorOpenState={setFolderEditorOpenState} name={name} /> : 
+  <h3 className='folder-link-name'>{ name }</h3>
+
+  const openTextEditor = () => {
+    setFolderEditorOpenState(true)
+  }
+
   return (
     <article className='folder-container' ref={drag}  >
-      <input
-        type='image'
-        src={ closeIcon }
-        alt='close icon'
-        onClick={ handleClose }
-        className='icon'
-      />
       <Link to={ `/myfolders/${id}` } onClick={ handleClick } className='folder-link'>
-        <article className='folder' ref={dropRef}>
-          <h3 className='folder-link-name'>{ name }</h3>
-        </article>
+        <img src={folder2} alt="folder icon" className='folder2' ref={dropRef}/>
       </Link>
+        {folderEditor}
+        <div className="folder-buttons">
+          <button onClick={openTextEditor} className="edit-btn">
+            <img src={edit} alt="edit folder name" className="edit-img"/>
+          </button>
+          <button onClick={ handleClose } className="close-btn">
+            <img src={closeIcon} alt="edit folder name" className="close-img"/>
+          </button>
+        </div>
+
     </article>
   )
 }

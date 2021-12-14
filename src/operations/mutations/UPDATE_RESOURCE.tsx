@@ -5,7 +5,7 @@ const UPDATE_RESOURCE = gql`
 mutation updateResource(
   $id: ID!,
   $folderId: ID!,
-  $newFolderId: ID!,
+  $newFolderId: ID,
   $name: String
 ) {
   updateResource(

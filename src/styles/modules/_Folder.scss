@@ -1,10 +1,19 @@
 .folder-container {
   margin: 1rem;
-  @include wh(8.5rem, 7rem);
+  @include wh(max-content, 375px);
+  position: relative;
 }
 
 .folder-link-name {
-  @include max-wh();
+ // @include max-wh();
+ margin: 0px;
+ font-size: 20px;
+ position: absolute;
+ top: 300px;
+ left: 60px;
+ font-family: $josefin;
+ font-weight: bold;
+
 }
 
 .folder {
@@ -12,13 +21,68 @@
   @include flex-row();
   @include center-xy();
   // @include max-wh();
-  background-image: url('../../assets/folder.png');
+  // background-image: url('../../assets/folder.png');
   background-size: contain;
   background-repeat: no-repeat;
   // background-position-x: 60%;
   // background-position-y: 50%;
 }
 
-.icon {
-  @include wh(2rem, 2rem);
+// .icon {
+//   @include wh(35px, 35px);
+//   margin-left: 10px;
+//   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+//   border-radius: 50%;
+//   border: black solid 3px;
+// }
+
+.folder2 {
+  height: 350px;
+  width: auto;
+}
+
+.edit {
+  background: none;
+  height: 30px;
+  width: 30px;
+}
+
+.folder-detatils {
+  @include flex-row();
+  height: 1px;
+}
+
+.folder-buttons {
+  position: absolute;
+  top: 333px;
+  left: 52px;
+  @include flex-row();
+}
+
+
+.edit-btn {
+  border: none;
+  background-color: transparent;
+  width: 30px;
+}
+
+.edit-img {
+  width: 30px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.check {
+  padding-top: 3px;
+}
+
+.close-btn {
+  background: none;
+}
+
+.close-img {
+
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
 }
