@@ -22,7 +22,6 @@ const UPDATE_FOLDER = gql`
         parentId
       }
     }
-    errors
   }
 }
 `;

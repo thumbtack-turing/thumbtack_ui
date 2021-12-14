@@ -10,6 +10,10 @@ import moveUp from '../assets/move-up.png'
 import trash from '../assets/trash.png'
 import move from '../assets/move.png'
 import ResourceTextEditor from './ResourceTextEditor';
+import { currentFolderVar } from '../client/cache';
+import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
+import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
+import { GET_USER } from '../operations/queries/GET_USER';
 
 export interface ResourceDetails {
   id: any;
@@ -33,7 +37,6 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
 
   const handleClose = () => {
     deleteResource();
-    console.log('resource id', id);
   }
 
   const [textOpen, setTextOpenState] = useState(false)
@@ -42,8 +45,11 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
     setTextOpenState(true)
   }
 
-  //trying to pass resource props, need to get folderid?
   const changeResourceName = textOpen ? <ResourceTextEditor id={id} setTextOpenState={setTextOpenState} name={name}/> : <h3>{ name }</h3>
+
+  const [updateResource] = useMutation(UPDATE_RESOURCE, {
+    refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
+  })
 
   return (
     <div

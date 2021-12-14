@@ -1,7 +1,6 @@
 .folder-container {
   margin: 1rem;
-  @include wh(fit-content, fit-content);
-  border: black solid 3px;
+  @include wh(max-content, 375px);
   position: relative;
 }
 
@@ -11,10 +10,10 @@
  font-size: 20px;
  position: absolute;
  top: 300px;
- left: 55px;
+ left: 60px;
  font-family: $josefin;
  font-weight: bold;
-  
+
 }
 
 .folder {
@@ -29,9 +28,13 @@
   // background-position-y: 50%;
 }
 
-.icon {
-  @include wh(2rem, 2rem);
-}
+// .icon {
+//   @include wh(35px, 35px);
+//   margin-left: 10px;
+//   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+//   border-radius: 50%;
+//   border: black solid 3px;
+// }
 
 .folder2 {
   height: 350px;
@@ -45,11 +48,41 @@
 }
 
 .folder-detatils {
-  @include flex-row()
+  @include flex-row();
+  height: 1px;
 }
 
 .folder-buttons {
   position: absolute;
-  top: 325px;
-  left: 55px;
+  top: 333px;
+  left: 52px;
+  @include flex-row();
+}
+
+
+.edit-btn {
+  border: none;
+  background-color: transparent;
+  width: 30px;
+}
+
+.edit-img {
+  width: 30px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.check {
+  padding-top: 3px;
+}
+
+.close-btn {
+  background: none;
+}
+
+.close-img {
+
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
 }

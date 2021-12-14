@@ -127,23 +127,16 @@ const Folder = (props: FolderProps): JSX.Element => {
       <Link to={ `/myfolders/${id}` } onClick={ handleClick } className='folder-link'>
         <img src={folder2} alt="folder icon" className='folder2' ref={dropRef}/>
       </Link>
-      <section className="folder-details">
-        <article className='folder' >
-          {folderEditor}
-        </article>
+        {folderEditor}
         <div className="folder-buttons">
-          <button onClick={openTextEditor}>
-            <img src={edit} alt="edit folder name" className="edit"/>
+          <button onClick={openTextEditor} className="edit-btn">
+            <img src={edit} alt="edit folder name" className="edit-img"/>
           </button>
-          <input
-            type='image'
-            src={ closeIcon }
-            alt='close icon'
-            onClick={ handleClose }
-            className='icon'
-          />
+          <button onClick={ handleClose } className="close-btn">
+            <img src={closeIcon} alt="edit folder name" className="close-img"/>
+          </button>
         </div>
-      </section>
+
     </article>
   )
 }
