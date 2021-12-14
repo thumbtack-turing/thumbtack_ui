@@ -14,6 +14,7 @@
  left: 55px;
  font-family: $josefin;
  font-weight: bold;
+  
 }
 
 .folder {
@@ -45,4 +46,10 @@
 
 .folder-detatils {
   @include flex-row()
+}
+
+.folder-buttons {
+  position: absolute;
+  top: 325px;
+  left: 55px;
 }

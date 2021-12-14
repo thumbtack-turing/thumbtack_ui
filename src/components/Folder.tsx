@@ -131,16 +131,18 @@ const Folder = (props: FolderProps): JSX.Element => {
         <article className='folder' >
           {folderEditor}
         </article>
-        <button onClick={openTextEditor}>
-          <img src={edit} alt="edit folder name" className="edit"/>
-        </button>
-        <input
-          type='image'
-          src={ closeIcon }
-          alt='close icon'
-          onClick={ handleClose }
-          className='icon'
-        />
+        <div className="folder-buttons">
+          <button onClick={openTextEditor}>
+            <img src={edit} alt="edit folder name" className="edit"/>
+          </button>
+          <input
+            type='image'
+            src={ closeIcon }
+            alt='close icon'
+            onClick={ handleClose }
+            className='icon'
+          />
+        </div>
       </section>
     </article>
   )
