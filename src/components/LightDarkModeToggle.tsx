@@ -6,12 +6,6 @@ import lightBulbOff from '../assets/light-bulb-off.png';
 import lightBulbOn from '../assets/light-bulb-on.png';
 
 const LightDarkModeToggle = () => {
-
-  // const handleChange = (checked: boolean) => {
-  //   setChecked(checked);
-  //   toggleTheme();
-  // }
-
   const { theme: currentTheme } = useReactiveVar(currentThemeVar);
   const newTheme = currentTheme === 'light' ? 'dark' : 'light';
   const [ checked, setChecked ] = useState(currentTheme === 'dark');
@@ -19,6 +13,7 @@ const LightDarkModeToggle = () => {
   const toggleTheme = () => {
     currentThemeVar({ theme: newTheme });
     setChecked(!checked);
+    localStorage.setItem('theme', newTheme)
   }
 
   return (
@@ -27,8 +22,8 @@ const LightDarkModeToggle = () => {
       <Switch
         onChange={ toggleTheme }
         checked={ checked }
-        onColor='#86d3ff'
-        onHandleColor='#2693e6'
+        onColor='#7D98A1'
+        onHandleColor='#C0DAE5'
         handleDiameter={30}
         uncheckedIcon={false}
         checkedIcon={false}

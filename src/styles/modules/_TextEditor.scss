@@ -1,8 +1,8 @@
 
 .folderEditor {
   position: absolute;
-  bottom: 50px;
-  left: 60px;
+  bottom: 18px;
+  left: 63px;
   margin-top: 10px;
   display: flex;
   justify-content: baseline;
@@ -10,13 +10,22 @@
 
 .newNameInput {
   height: 23px;
-  width: 210px;
+  width: 130px;
   margin-left: 5px;
   margin-right: 5px;
   font-size: 18px;
 }
 
 .change-name-folder {
+  background: #E1D3D6;
+  border-radius: 50%;
+  height:30px;
+  width: 30px;
+  border: #EBD0D1;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.resource-edit-btn {
   background: #E1D3D6;
   border-radius: 50%;
   height:30px;

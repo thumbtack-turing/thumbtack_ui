@@ -1,24 +1,23 @@
 .resource-container {
   position: relative;
-  margin: 1rem;
-  border: black 3px solid;
-  @include wh(20rem, 25rem);
-  border-radius: 25px;
+  margin: 2rem 1rem;
+  // border: black 3px solid;
+  @include wh(17rem, 20rem);
+  border-radius: 10px;
   @include flex-column();
-  background-color: aliceblue;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .resource-img {
   @include wh(100%, 75%);
-  border-top-left-radius: 22px;
-  border-top-right-radius: 22px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   position: absolute;
 }
 
 .img-container {
   @include wh(100%, 75%);
-  
+
 }
 
 .des-container {
@@ -28,7 +27,8 @@
 }
 
 .icons {
-  margin-top: 10px;
+  margin-top: 5px;
+  z-index: 1;
 }
 
 .move-icon {

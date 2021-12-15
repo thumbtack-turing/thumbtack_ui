@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import clearAll from '../assets/clear-all.svg'
-import { Resource as ResourceProps } from '../models/Resource'
-import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE'
-import { useQuery, useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { currentFolderVar } from '../client/cache';
 import { GET_USER } from '../operations/queries/GET_USER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
-import pass from '../assets/pass.svg'
-import { currentFolderVar } from '../client/cache';
+import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
+import Loading from './Loading';
+import Error from './Error';
+import clearAll from '../assets/clear-all.svg';
+import pass from '../assets/pass.svg';
 
 interface Props {
   id: any,
@@ -23,7 +24,9 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
     console.log(newName)
   }
 
-  const [updateResource] = useMutation(UPDATE_RESOURCE, {
+  const [ updateResource,
+    { loading: loadingUpdateResource, error: errorUpdateResource }
+  ] = useMutation(UPDATE_RESOURCE, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   })
 
@@ -38,8 +41,13 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
   }
 
   return (
-    <form>
-      <button onClick={cancel}>
+    <>
+    { (loadingUpdateResource)
+      && <Loading /> }
+    { (errorUpdateResource)
+      && <Error /> }
+    <form onSubmit={submitNewName}>
+      <button onClick={cancel} className='resource-edit-btn'>
         <img src={clearAll} alt="clear all" className="clearAll" />
       </button>
       <input
@@ -50,10 +58,11 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
         required
         className='newNameInput'
       />
-      <button>
-        <img src={pass} alt="check" className="check" onClick={submitNewName}/>
+      <button className='resource-edit-btn'>
+        <img src={pass} alt="check" className="check"/>
       </button>
     </form>
+    </>
   )
 }
 
