@@ -14,7 +14,7 @@ export const folderContainsInfo = (childFolders: Folders, childResources: Resour
   }
   if (childResources.length) {
     if (childResources.length > 1) {
-      resourcesInfo = `${childFolders.length} resources`
+      resourcesInfo = `${childResources.length} resources`
     } else {
       resourcesInfo = `${childResources.length} resource`
     }
