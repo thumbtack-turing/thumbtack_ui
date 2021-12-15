@@ -30,15 +30,16 @@ const CreateFolder = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    createFolder();
+    createFolder().catch(error => console.warn(error));
     setShowing(false);
     setName('');
   }
 
   return (
-    <article className='create-container'>
+    <>
     { loading && <Loading /> }
     { error && <Error /> }
+    <article className='create-container'>
       <button
         className='add-btn add-folder-btn'
         onClick={ toggleVisibility }
@@ -69,6 +70,7 @@ const CreateFolder = (): JSX.Element => {
           </form>
       }
     </article>
+    </>
   )
 }
 

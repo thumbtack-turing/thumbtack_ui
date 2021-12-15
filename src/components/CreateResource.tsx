@@ -36,7 +36,7 @@ const CreateResource = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    createResource();
+    createResource().catch(error => console.warn(error));
     setShowing(false);
     setName('');
     setUrl('');
@@ -45,7 +45,7 @@ const CreateResource = (): JSX.Element => {
   return (
     <article className='create-container'>
     { loading && <Loading /> }
-    { error && <Error /> }
+    { error && <Error type='invalid url'/> }
       <button
         onClick={ toggleVisibility }
         className='add-btn add-resource-btn'
