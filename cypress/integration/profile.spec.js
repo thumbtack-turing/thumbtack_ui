@@ -102,5 +102,22 @@ describe('profile page', () => {
   it('should delete an item when the icon is clicked', () => {
     cy.visit(url)
       .get('.close-icon').last().click()
+      // item should no longer be there
+  })
+
+  it.skip('should reflect name changes to a resource', () => {
+    // select a resource, use the form, see that its name is no longer x and is now y
+  })
+
+  it.skip('should reflect name changes to a folder', () => {
+    // select a folder, use the form, see that its name is no longer x and is now y
+  })
+
+  it.skip('should not allow a blank name field', () => {
+    // try to enter an empty to name when editing a folder or resource
+  })
+
+  it.skip('should warn the user when they have inputted an invalid url', () => {
+    // check that the error renders when inputting a url that invokes an error response
   })
 })
