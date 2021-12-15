@@ -47,7 +47,7 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
       && <Loading /> }
     { (errorUpdateResource)
       && <Error /> }
-    <form>
+    <form onSubmit={submitNewName}>
       <button onClick={cancel} className='resource-edit-btn'>
         <img src={clearAll} alt="clear all" className="clearAll" />
       </button>
@@ -60,7 +60,7 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
         className='newNameInput'
       />
       <button className='resource-edit-btn'>
-        <img src={pass} alt="check" className="check" onClick={submitNewName}/>
+        <img src={pass} alt="check" className="check"/>
       </button>
     </form>
     </>

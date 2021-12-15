@@ -22,8 +22,8 @@ const LightDarkModeToggle = () => {
       <Switch
         onChange={ toggleTheme }
         checked={ checked }
-        onColor='#86d3ff'
-        onHandleColor='#2693e6'
+        onColor='#7D98A1'
+        onHandleColor='#C0DAE5'
         handleDiameter={30}
         uncheckedIcon={false}
         checkedIcon={false}

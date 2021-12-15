@@ -41,7 +41,7 @@ const FolderTextEditor: React.FC<Props> = ({ id, setFolderEditorOpenState, name 
     <>
     { loading && <Loading /> }
     { error && <Error /> }
-    <form className="folderEditor">
+    <form className="folderEditor" onSubmit={submitNewFolder}>
       <button onClick={clearAllText} className="change-name-folder">
         <img src={clearAll} alt="clear all" className="check" />
       </button>
@@ -54,7 +54,7 @@ const FolderTextEditor: React.FC<Props> = ({ id, setFolderEditorOpenState, name 
         required
       />
       <button className="change-name-folder">
-        <img src={pass} alt="submit" className="check"  onClick={submitNewFolder}/>
+        <img src={pass} alt="submit" className="check"/>
       </button>
     </form>
     </>
