@@ -72,7 +72,7 @@ describe('profile page', () => {
 
   it('should display a created resource in the current folder', () => {
     cy.get('.create-resource-btn').click()
-      .get('.resource').last()
+      .get('.resource-container').last()
         .should('contain', 'hey')
   })
 
@@ -85,7 +85,7 @@ describe('profile page', () => {
 
   it('should display a created folder in the current folder', () => {
     cy.get('.create-folder-btn').click()
-      .get('.folder').last()
+      .get('.folder-container').last()
         .should('contain', 'i am a folder')
   })
 
@@ -94,7 +94,7 @@ describe('profile page', () => {
   })
 
   it('should open a clicked folder', () => {
-    cy.get('.folder').last().click()
+    cy.get('.folder-link').last().click()
       .url()
       .should('not.eq', '/myfolders')
   })
@@ -102,5 +102,22 @@ describe('profile page', () => {
   it('should delete an item when the icon is clicked', () => {
     cy.visit(url)
       .get('.close-icon').last().click()
+      // item should no longer be there
+  })
+
+  it.skip('should reflect name changes to a resource', () => {
+    // select a resource, use the form, see that its name is no longer x and is now y
+  })
+
+  it.skip('should reflect name changes to a folder', () => {
+    // select a folder, use the form, see that its name is no longer x and is now y
+  })
+
+  it.skip('should not allow a blank name field', () => {
+    // try to enter an empty to name when editing a folder or resource
+  })
+
+  it.skip('should warn the user when they have inputted an invalid url', () => {
+    // check that the error renders when inputting a url that invokes an error response
   })
 })

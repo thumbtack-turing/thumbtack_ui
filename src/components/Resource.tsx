@@ -91,7 +91,7 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
             src={ trash }
             alt='close icon'
             onClick={ handleClose }
-            className='icon'
+            className='icon close-icon'
             />
             <input
             type='image'
