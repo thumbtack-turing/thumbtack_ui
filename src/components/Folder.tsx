@@ -13,6 +13,7 @@ import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
 import FolderTextEditor from './FolderTextEditor';
 import Loading from './Loading';
 import Error from './Error';
+import { folderContainsInfo } from '../utilities/folderContainsInfo';
 import closeIcon from '../assets/button-close-icon-645944.png';
 import edit from '../assets/edit.png';
 import folder2 from '../assets/folder2.png';
@@ -106,7 +107,7 @@ const Folder = (props: FolderProps): JSX.Element => {
     </button>
     </div>
 
-    const containsInfo = `contains ${childFolders.length} folders & ${childResources.length} links`;
+  const containsInfo = folderContainsInfo(childFolders, childResources);
 
   return (
     <>
