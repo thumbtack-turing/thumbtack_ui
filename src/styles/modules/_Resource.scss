@@ -2,7 +2,7 @@
   position: relative;
   margin: 2rem 1rem;
   // border: black 3px solid;
-  @include wh(14rem, 18rem);
+  @include wh(17rem, 20rem);
   border-radius: 10px;
   @include flex-column();
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -28,6 +28,7 @@
 
 .icons {
   margin-top: 5px;
+  z-index: 1;
 }
 
 .move-icon {
