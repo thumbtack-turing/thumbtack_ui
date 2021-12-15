@@ -22,8 +22,11 @@ $navlink-font: $comfortaa;
   font-size: 1.5rem;
 }
 
-// .create-container {
-// }
+.resource-name {
+  font-family: $josefin;
+  font-size: 1.25rem;
+  margin-top: 1.15rem;
+}
 
 .folder-name {
   font-family: $josefin;
@@ -32,4 +35,20 @@ $navlink-font: $comfortaa;
 
 .filepath-current-folder {
   font-weight: bolder;
+}
+
+.prompt-when-empty {
+  font-family: $josefin;
+  font-size: 2rem;
+}
+
+.contains-info {
+  font-family: $josefin;
+  font-size: 1.25rem;
+}
+
+.four-oh-four {
+  font-family: $josefin;
+  font-size: 3rem;
+  text-align: center;
 }

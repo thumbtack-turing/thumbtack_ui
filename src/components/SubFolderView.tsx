@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { currentFolderVar, currentFilePathVar } from '../client/cache';
@@ -26,10 +26,10 @@ const SubFolderView = (): JSX.Element => {
   }
 
   const childFolderElements = folderData?.childFolders?.map((folder: FolderModel) =>
-    <Folder key={ folder.id } { ...folder } />
+    <Folder key={ 'f' + folder.id } { ...folder } />
   )
   const childResourceElements = folderData?.childResources?.map((resource: ResourceModel) =>
-    <Resource key={ resource.id } { ...resource } />
+    <Resource key={ 'r' + resource.id } { ...resource } />
   )
 
   const promptWhenEmpty = () => {

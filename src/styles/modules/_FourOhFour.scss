@@ -1,0 +1,10 @@
+.four-oh-four {
+  @include max-wh();
+  @include flex-column();
+  @include center-xy();
+  justify-content: space-evenly;
+}
+
+.rainbow-kitty {
+  @include wh(30rem, 15rem);
+}

@@ -22,7 +22,7 @@ export const currentFolderVar: ReactiveVar<Folder> = makeVar<Folder>({
 );
 
 export const currentThemeVar: ReactiveVar<Theme> = makeVar<Theme>({
-  theme: 'light'
+  theme: localStorage.getItem('theme') || 'light'
 });
 
 export const currentFilePathVar: ReactiveVar<FilePath> = makeVar<FilePath>({

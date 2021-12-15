@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { currentFolderVar } from '../client/cache';
 import CREATE_RESOURCE from '../operations/mutations/CREATE_RESOURCE';
+import Loading from './Loading';
+import Error from './Error';
 import plusIcon from '../assets/plus.png';
 
 const CreateResource = (): JSX.Element => {
@@ -11,7 +13,7 @@ const CreateResource = (): JSX.Element => {
 
   const [ url, setUrl ] = useState('');
   const { id: folderId } = useReactiveVar(currentFolderVar);
-  const [ createResource ] = useMutation(CREATE_RESOURCE, {
+  const [ createResource, { loading, error } ] = useMutation(CREATE_RESOURCE, {
     variables: {
       folderId, name, url
     }
@@ -34,7 +36,7 @@ const CreateResource = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    createResource();
+    createResource().catch(error => console.warn(error));
     setShowing(false);
     setName('');
     setUrl('');
@@ -42,6 +44,8 @@ const CreateResource = (): JSX.Element => {
 
   return (
     <article className='create-container'>
+    { loading && <Loading /> }
+    { error && <Error type='invalid url'/> }
       <button
         onClick={ toggleVisibility }
         className='add-btn add-resource-btn'

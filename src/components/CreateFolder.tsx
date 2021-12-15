@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useMutation, useReactiveVar } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import CREATE_FOLDER from '../operations/mutations/CREATE_FOLDER';
+import Loading from './Loading';
+import Error from './Error';
 import plusIcon from '../assets/plus.png';
 
 const CreateFolder = (): JSX.Element => {
@@ -11,7 +13,7 @@ const CreateFolder = (): JSX.Element => {
   const { id } = useReactiveVar(currentFolderVar);
   const { id: userId } = useReactiveVar(userVar);
 
-  const [ createFolder ] = useMutation(CREATE_FOLDER, {
+  const [ createFolder, { loading, error } ] = useMutation(CREATE_FOLDER, {
     variables: {
       userId, parentId: id, name
     }
@@ -28,12 +30,15 @@ const CreateFolder = (): JSX.Element => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    createFolder();
+    createFolder().catch(error => console.warn(error));
     setShowing(false);
     setName('');
   }
 
   return (
+    <>
+    { loading && <Loading /> }
+    { error && <Error /> }
     <article className='create-container'>
       <button
         className='add-btn add-folder-btn'
@@ -65,6 +70,7 @@ const CreateFolder = (): JSX.Element => {
           </form>
       }
     </article>
+    </>
   )
 }
 

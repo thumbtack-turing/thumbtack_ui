@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useReactiveVar, useMutation } from '@apollo/client';
+import React from 'react';
+import { useReactiveVar } from '@apollo/client';
 import { userVar, currentFolderVar } from '../client/cache';
 import Resource from './Resource';
 import Folder from './Folder';
@@ -15,10 +15,10 @@ const BaseFolderView = (): JSX.Element => {
   }
 
   const childFolderElements = baseFolderData?.childFolders.map((folder: FolderModel) =>
-    <Folder key={ folder.id } { ...folder }/>
+    <Folder key={ 'f' + folder.id } { ...folder }/>
   )
   const childResourceElements = baseFolderData?.childResources.map((resource: ResourceModel) =>
-    <Resource key={ resource.id } { ...resource } />
+    <Resource key={ 'r' + resource.id } { ...resource } />
   )
 
   const promptWhenEmpty = () => {
