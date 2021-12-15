@@ -1,5 +1,25 @@
 .creators {
-  @include wh(100%, 100vh)
+  @include wh(100%, 100vh);
+  @include flex-row();
+  justify-content: space-around;
+}
+
+.creator-details {
+  margin-top: 10%;
+  width: 380px;
+
+
+}
+
+.cards {
+  margin-top: 8%;
+  width: 900px;
+  @include flex-row();
+  flex-wrap: wrap;
+}
+
+#janika-back {
+  background-color: #EBD0D1;
 }
 
 #janika {
@@ -9,6 +29,37 @@
 .avatar {
   width: 300px;
   height: 300px;
+  object-fit: cover;
+}
+
+.creator-h1 {
+  margin-top: 30px;
+  font-family: $comfortaa;
+  font-size: 20px;
+}
+
+.stack {
+  @include flex-row()
+}
+
+#list {
+  margin-right: 60px;
+}
+
+ul {
+  margin-bottom: 15px;
+}
+.story {
+  font-family: $comfortaa;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.creator-title {
+  font-family: $pacifico;
+  font-size: 40px;
+  text-shadow: $text-shadow-light;
+  text-align: center;
 }
 
 .flip-card {
@@ -16,6 +67,41 @@
   width: 300px;
   height: 300px;
   perspective: 1000px;
+  font-family: $comfortaa;
+
+}
+
+.name {
+  font-size: 25px;
+  color: $black-coral;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: $black-coral;
+}
+
+.person-details {
+  margin-bottom: 10px;
+  color: $black-coral;
+}
+
+.creator-btns {
+  @include flex-row();
+  justify-content: center;
+}
+
+.creator-icon {
+  @include wh(30px, auto)
+}
+
+.flip-card-details {
+  margin-top: 15px;
+  width: 250px;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .flip-card-inner {
@@ -46,7 +132,7 @@
 }
 
 .flip-card-back {
-  background-color: #2980b9;
   color: white;
   transform: rotateY(180deg);
 }
+
