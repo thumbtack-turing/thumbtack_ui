@@ -10,6 +10,7 @@ import Profile from './components/Profile';
 import BaseFolderView from './components/BaseFolderView';
 import SubFolderView from './components/SubFolderView';
 import LandingPage from './components/LandingPage';
+import Creators from './components/Creators'
 import FourOhFour from './components/FourOhFour';
 import './styles/index.scss';
 
@@ -23,6 +24,9 @@ render(
         <Routes>
         <Route path='/' element={ <App /> }>
           <Route index element={ <LandingPage /> } />
+          <Route path='meet-the-team'>
+            <Route index element={ <Creators/> } />
+          </Route>
           <Route path='myfolders' element={ <Profile /> } >
             <Route index element={ <BaseFolderView /> } />
             <Route path=':folderId' element={ <SubFolderView /> } />

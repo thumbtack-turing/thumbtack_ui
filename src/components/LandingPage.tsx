@@ -2,7 +2,7 @@ import React from 'react';
 import Block1 from './LandingBlock1'
 import Block2 from './LandingBlock2'
 import Block3 from './LandingBlock3'
-import Block4 from './LandingBlock4'
+
 import Footer from './Footer'
 
 const LandingPage = () => {
@@ -11,7 +11,6 @@ const LandingPage = () => {
       <Block1 />
       <Block2 />
       <Block3 />
-      <Block4 />
       <Footer />
     </div>
   )

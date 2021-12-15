@@ -11,14 +11,17 @@ footer {
 .left-side-footer {
   @include flex-column();
   justify-content: center;
+  position: relative;
 }
 
 .links-top {
   @include flex-row();
+  position: relative;
 }
 
 .links-bottom {
   @include flex-row();
+  position: relative;
 }
 
 .thumbtack-footer {
@@ -29,18 +32,40 @@ footer {
 .get-app {
   @include flex-column();
   justify-content: center;
+  position: relative;
 }
 
 .footer-link {
   margin-top: 20px;
   margin-left: 50px;
+  cursor: pointer;
 }
 
 .fake-icon {
   margin-top: 20px;
 }
 
-.fake-hover {
+.fake-icon:hover {
+  cursor: pointer;
+}
+
+.fake-btn {
   width: 100px;
-  // border: 
+  top: 40px;
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  border: black solid 3px;
+  position: absolute;
+}
+
+.fake-links {
+  width: 100px;
+  top: 35px;
+  left: 150px;
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  border: black solid 3px;
+  position: absolute;
 }

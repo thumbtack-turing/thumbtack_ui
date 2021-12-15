@@ -38,6 +38,7 @@
   align-items: center;
   top: 30%;
   position: absolute;
+  text-shadow: $text-shadow-light;
 }
 
 .catchphrase {
@@ -47,7 +48,7 @@
   position: absolute;
   z-index: 3;
   color: white;
-  font-family: $main-font;
+  font-family: $comfortaa;
   font-weight: $main-font-bold;
 }
 
@@ -57,38 +58,28 @@
   position: absolute;
   z-index: 3;
   color: white;
-  font-family: $main-font;
+  font-family: $comfortaa;
   top: 75%;
 }
 
-.block1-btn {
+.go-to-app {
   height: 50px;
   width: 200px;
   z-index: 3;
-  background-color: #7D7DFF;
+  background-color: $columbia-blue-light;
+  border: none;
   color: white;
-  font-family: $main-font;
+  font-family: $comfortaa;
   text-align: center;
   border-radius: 25px;
   margin-top: 350px;
+  position: fixed;
+  bottom: 50px;
+  right: 40px;
+  text-shadow: $text-shadow-light;
+  box-shadow: $box-shadow-light;
+  cursor: pointer;
 }
 
-.decor {
-  z-index: 3;
-  position: absolute;
-}
 
-#decor1 {
-  top: 60%;
-  left: 18%;
-}
 
-#decor2 {
-  top: 30%;
-  right: 15%;
-}
-
-#decor3 {
-  top: 70%;
-  right: 25%;
-}
