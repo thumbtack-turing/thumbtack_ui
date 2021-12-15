@@ -1,8 +1,6 @@
 .gallery {
   @include wh(100%, 100%);
   @include flex-row();
-  // margin-top: -6rem;
-  // align-items: center;
   flex-wrap: wrap;
   overflow-y: scroll;
 
@@ -14,15 +12,7 @@
   width: 100%;
   top: 0rem;
   padding: 0 0 .5rem 1rem;
-  // margin-top: -11rem;
-  // padding-left: 1rem;
-  // z-index: 1;
-  z-index: 1;
-}
-
-.folder-name {
-  // padding-top: .2rem;
-
+  z-index: 3;
 }
 
 .gallery-items {
@@ -31,6 +21,4 @@
   @include center-xy();
   justify-content: space-around;
   flex-wrap: wrap;
-  // overflow-y: scroll;
-  // margin: 2rem 2rem 0 2rem;
 }

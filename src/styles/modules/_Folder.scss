@@ -9,7 +9,7 @@
  margin: 0px;
  font-size: 20px;
  position: absolute;
- top: 300px;
+ top: 255px;
  left: 60px;
  font-family: $josefin;
  font-weight: bold;
@@ -30,14 +30,14 @@
 
 .icon {
   @include wh(35px, 35px);
-  margin-left: 10px;
+  margin: 0 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 50%;
 
 }
 
 .folder2 {
-  height: 350px;
+  height: 300px;
   width: auto;
 }
 
@@ -54,7 +54,7 @@
 
 .folder-buttons {
   position: absolute;
-  top: 333px;
+  top: 280px;
   left: 52px;
   @include flex-row();
 }

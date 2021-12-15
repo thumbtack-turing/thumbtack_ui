@@ -49,7 +49,9 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
     setTextOpenState(true)
   }
 
-  const changeResourceName = textOpen ? <ResourceTextEditor id={id} setTextOpenState={setTextOpenState} name={name}/> : <h3>{ name }</h3>
+  const changeResourceName = textOpen
+    ? <ResourceTextEditor id={id} setTextOpenState={setTextOpenState} name={name}/>
+    : <h3 className='resource-name'>{ name }</h3>
 
   const [ updateResource,
     { loading: loadingUpdateResource, error: errorUpdateResource, data: dataUpdateResource }

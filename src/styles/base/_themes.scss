@@ -12,22 +12,28 @@
   --create-folder-btn:#{$pale-pink-light};
   --input-field:#{$cultured};
   --filepath:#{$rich-black-fogra};
+  --filepath-link:#{$columbia-blue-dark};
+  --body-text:#{$rich-black-fogra};
+  --resource-background:#{$dark-sky-blue}
 }
 
 [data-theme='dark'] {
   --background: #{$raisin-black-dark};
   --header-background: #{$raisin-black-light};
-  --logo-background: #{$deep-space-sparkle};
+  --logo-background: #{$raisin-black-dark};
   --logo-text: #{$cultured};
   --text-shadow:#{$text-shadow-light};
   --box-shadow:#{$box-shadow-light};
   --username-color:#{$pewter-blue};
-  --add-resource-btn:#{$french-sky-blue};
-  --create-resource-btn:#{$french-sky-blue};
-  --add-folder-btn:#{$celeste};
-  --create-folder-btn:#{$celeste};
+  --add-resource-btn:#{$light-blue};
+  --create-resource-btn:#{$light-blue};
+  --add-folder-btn:#{$columbia-blue-light};
+  --create-folder-btn:#{$columbia-blue-light};
   --input-field:#{$cultured};
   --filepath:#{$cultured};
+  --filepath-link:#{$pewter-blue};
+  --body-text:#{$cultured};
+  --resource-background:#{$raisin-black-dark}
 }
 
 .header,
@@ -55,10 +61,6 @@
   background-color: var(--background);
 }
 
-// .add-btn {
-//   box-shadow: var(--box-shadow);
-// }
-
 .add-resource-btn {
   background-color: var(--add-resource-btn);
 }
@@ -79,6 +81,19 @@
   background-color: var(--input-field);
 }
 
-.folder-name {
+.filepath-current-folder {
   color: var(--filepath);
+}
+
+.filepath-link {
+  color: var(--filepath-link);
+}
+
+.folder-link-name,
+.resource-name {
+  color: var(--body-text);
+}
+
+.resource-container {
+  background-color: var(--resource-background);
 }

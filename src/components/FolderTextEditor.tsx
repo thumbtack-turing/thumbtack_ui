@@ -50,8 +50,8 @@ const FolderTextEditor: React.FC<Props> = ({ id, setFolderEditorOpenState, name 
         name='name'
         placeholder='Edit Name'
         onChange={ handleChange }
-        required
         className='newNameInput'
+        required
       />
       <button className="change-name-folder">
         <img src={pass} alt="submit" className="check"  onClick={submitNewFolder}/>
