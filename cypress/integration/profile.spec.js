@@ -72,7 +72,7 @@ describe('profile page', () => {
 
   it('should display a created resource in the current folder', () => {
     cy.get('.create-resource-btn').click()
-      .get('.resource').last()
+      .get('.resource-container').last()
         .should('contain', 'hey')
   })
 
@@ -85,7 +85,7 @@ describe('profile page', () => {
 
   it('should display a created folder in the current folder', () => {
     cy.get('.create-folder-btn').click()
-      .get('.folder').last()
+      .get('.folder-container').last()
         .should('contain', 'i am a folder')
   })
 
@@ -94,7 +94,7 @@ describe('profile page', () => {
   })
 
   it('should open a clicked folder', () => {
-    cy.get('.folder').last().click()
+    cy.get('.folder-link').last().click()
       .url()
       .should('not.eq', '/myfolders')
   })
