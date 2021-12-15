@@ -1,3 +1,4 @@
 .loading {
-  @include wh(100%, 100%);
+  @include wh(15rem, auto);
+  margin-top: 15rem;
 }

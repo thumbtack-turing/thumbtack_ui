@@ -4,7 +4,7 @@ const Error = ({ error }: any): JSX.Element => {
   console.log(error)
   return (
     <article>
-      <h2>error</h2>
+      <h2>Hmm, something went wrong. Try refreshing your browser.</h2>
     </article>
   )
 }

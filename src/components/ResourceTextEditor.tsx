@@ -5,6 +5,8 @@ import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE'
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_USER } from '../operations/queries/GET_USER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
+import Loading from './Loading';
+import Error from './Error';
 import pass from '../assets/pass.svg'
 import { currentFolderVar } from '../client/cache';
 
@@ -23,7 +25,9 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
     console.log(newName)
   }
 
-  const [updateResource] = useMutation(UPDATE_RESOURCE, {
+  const [ updateResource,
+    { loading: loadingUpdateResource, error: errorUpdateResource, data: dataUpdateResource }
+  ] = useMutation(UPDATE_RESOURCE, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   })
 
@@ -38,6 +42,11 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
   }
 
   return (
+    <>
+    { (loadingUpdateResource)
+      && <Loading /> }
+    { (errorUpdateResource)
+      && <Error /> }
     <form>
       <button onClick={cancel}>
         <img src={clearAll} alt="clear all" className="clearAll" />
@@ -54,6 +63,7 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
         <img src={pass} alt="check" className="check" onClick={submitNewName}/>
       </button>
     </form>
+    </>
   )
 }
 

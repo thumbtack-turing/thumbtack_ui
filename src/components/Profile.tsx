@@ -25,22 +25,7 @@ const Profile = (): JSX.Element => {
     currentFolderVar(baseFolder);
   }
 
-  // const currentFolder = useReactiveVar(currentFolderVar);
-
-  // useEffect(() => {
-  //   console.log('useEffect', currentFolderVar())
-  // }, [ currentFolderVar ])
-
-  // const [, drop] = useDrop(
-  //   () => ({
-  //     accept: ItemTypes.RESOURCE
-  //   })
-  // )
-
-  console.log(currentFilePathVar())
-
   return (
-
     <main className='profile'>
       { loading && <Loading /> }
       { error && <Error /> }
@@ -53,7 +38,6 @@ const Profile = (): JSX.Element => {
         <Outlet />
       </> }
     </main>
-
   )
 }
 

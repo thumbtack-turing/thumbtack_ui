@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import UPDATE_FOLDER from '../operations/mutations/UPDATE_FOLDER';
 import { GET_USER } from '../operations/queries/GET_USER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
-import { useQuery, useMutation } from '@apollo/client';
-import clearAll from '../assets/clear-all.svg'
-import pass from '../assets/pass.svg'
+import Loading from './Loading';
+import Error from './Error';
+import clearAll from '../assets/clear-all.svg';
+import pass from '../assets/pass.svg';
 
 interface Props {
   id: any;
@@ -19,7 +21,7 @@ const FolderTextEditor: React.FC<Props> = ({ id, setFolderEditorOpenState, name 
     setNewFolderName(e.target.value)
   }
 
-  const [ updateFolder ] = useMutation(UPDATE_FOLDER, {
+  const [ updateFolder, { loading, error, data } ] = useMutation(UPDATE_FOLDER, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   })
 
@@ -36,7 +38,11 @@ const FolderTextEditor: React.FC<Props> = ({ id, setFolderEditorOpenState, name 
   }
 
   return (
-    <form className="folderEditor"> 
+    <>
+    { loading && <Loading /> }
+    { error && <Error /> }
+    { data &&
+    <form className="folderEditor">
       <button onClick={clearAllText} className="change-name-folder">
         <img src={clearAll} alt="clear all" className="check" />
       </button>
@@ -52,6 +58,8 @@ const FolderTextEditor: React.FC<Props> = ({ id, setFolderEditorOpenState, name 
         <img src={pass} alt="submit" className="check"  onClick={submitNewFolder}/>
       </button>
     </form>
+    }
+    </>
   )
 }
 
