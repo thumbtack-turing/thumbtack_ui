@@ -6,13 +6,6 @@ import Header from './Header';
 import { currentThemeVar } from '../client/cache';
 
 const App = () => {
-  // const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  // const [ theme, setTheme ] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
-  // const toggleTheme = () => {
-  //   const newTheme = theme === 'light' ? 'dark' : 'light';
-  //   setTheme(newTheme);
-  // }
-
   const { theme: currentTheme } = useReactiveVar(currentThemeVar);
 
   return (
