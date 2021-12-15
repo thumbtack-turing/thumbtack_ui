@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useQuery, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import UPDATE_FOLDER from '../operations/mutations/UPDATE_FOLDER';
 import { GET_USER } from '../operations/queries/GET_USER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
@@ -21,7 +21,7 @@ const FolderTextEditor: React.FC<Props> = ({ id, setFolderEditorOpenState, name 
     setNewFolderName(e.target.value)
   }
 
-  const [ updateFolder, { loading, error, data } ] = useMutation(UPDATE_FOLDER, {
+  const [ updateFolder, { loading, error } ] = useMutation(UPDATE_FOLDER, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   })
 

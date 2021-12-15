@@ -4,14 +4,12 @@ import { useDrag } from 'react-dnd'
 import { useMutation } from '@apollo/client';
 import { Resource as ResourceProps } from '../models/Resource';
 import ResourceTextEditor from './ResourceTextEditor';
-import { currentFolderVar } from '../client/cache';
 import { GET_USER } from '../operations/queries/GET_USER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
 import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
 import DELETE_RESOURCE from '../operations/mutations/DELETE_RESOURCE';
 import Loading from './Loading';
 import Error from './Error';
-import closeIcon from '../assets/button-close-icon-645944.png';
 import edit from '../assets/edit.png'
 import moveUp from '../assets/move-up.png'
 import trash from '../assets/trash.png'
@@ -34,7 +32,7 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
   }))
 
   const [ deleteResource,
-    { loading: loadingDeleteResource, error: errorDeleteResource, data: dataDeleteResource }
+    { loading: loadingDeleteResource, error: errorDeleteResource }
   ] = useMutation(DELETE_RESOURCE, {
     variables: { id }
   });
@@ -54,7 +52,7 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
     : <h3 className='resource-name'>{ name }</h3>
 
   const [ updateResource,
-    { loading: loadingUpdateResource, error: errorUpdateResource, data: dataUpdateResource }
+    { loading: loadingUpdateResource, error: errorUpdateResource }
   ] = useMutation(UPDATE_RESOURCE, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   })

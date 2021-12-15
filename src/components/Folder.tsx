@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { useDrag, useDrop } from 'react-dnd';
@@ -31,7 +31,7 @@ const Folder = (props: FolderProps): JSX.Element => {
     variables: { id }
   });
   const [ deleteFolder,
-    { loading: loadingDeleteFolder, error: errorDeleteFolder, data: dataDeleteFolder }
+    { loading: loadingDeleteFolder, error: errorDeleteFolder }
   ] = useMutation(DELETE_FOLDER, {
     variables: { id }
   });
@@ -49,13 +49,13 @@ const Folder = (props: FolderProps): JSX.Element => {
   const { id: oldFolderId } = currentFolderVar();
 
   const [ updateResource,
-    { loading: loadingUpdateResource, error: errorUpdateResource, data: dataUpdateResource }
+    { loading: loadingUpdateResource, error: errorUpdateResource }
   ] = useMutation(UPDATE_RESOURCE, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   });
 
   const [ updateFolder,
-    { loading: loadingUpdateFolder, error: errorUpdateFolder, data: dataUpdateFolder }
+    { loading: loadingUpdateFolder, error: errorUpdateFolder }
   ] = useMutation(UPDATE_FOLDER, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ]
   })
@@ -111,7 +111,7 @@ const Folder = (props: FolderProps): JSX.Element => {
 
   return (
     <>
-    { (loadingGetFolder || loadingDeleteFolder || loadingUpdateResource || loadingDeleteFolder)
+    { (loadingGetFolder || loadingUpdateFolder || loadingUpdateResource || loadingDeleteFolder)
       && <Loading /> }
     { (errorGetFolder || errorDeleteFolder || errorUpdateResource || errorDeleteFolder)
       && <Error /> }

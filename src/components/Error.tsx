@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Error = ({ type = 'none' }: any): JSX.Element => {
-  console.log(type)
-  let errorType;
   if (type === 'none') {
     return <h2>Hmm, something went wrong. Try refreshing your browser.</h2>
   } else if (type === 'invalid url') {

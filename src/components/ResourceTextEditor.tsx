@@ -1,14 +1,13 @@
-import React, { useState } from 'react'
-import clearAll from '../assets/clear-all.svg'
-import { Resource as ResourceProps } from '../models/Resource'
-import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE'
-import { useQuery, useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { currentFolderVar } from '../client/cache';
 import { GET_USER } from '../operations/queries/GET_USER';
 import { GET_FOLDER } from '../operations/queries/GET_FOLDER';
+import UPDATE_RESOURCE from '../operations/mutations/UPDATE_RESOURCE';
 import Loading from './Loading';
 import Error from './Error';
-import pass from '../assets/pass.svg'
-import { currentFolderVar } from '../client/cache';
+import clearAll from '../assets/clear-all.svg';
+import pass from '../assets/pass.svg';
 
 interface Props {
   id: any,
@@ -26,7 +25,7 @@ const ResourceTextEditor: React.FC<Props> =  ({id, name, setTextOpenState}): JSX
   }
 
   const [ updateResource,
-    { loading: loadingUpdateResource, error: errorUpdateResource, data: dataUpdateResource }
+    { loading: loadingUpdateResource, error: errorUpdateResource }
   ] = useMutation(UPDATE_RESOURCE, {
     refetchQueries: [ GET_USER, 'getUser' , GET_FOLDER, 'getFolder' ],
   })

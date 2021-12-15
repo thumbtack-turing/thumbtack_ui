@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { useQuery, useReactiveVar } from '@apollo/client';
-import { useDrop } from 'react-dnd';
-import { userVar, currentFolderVar, currentFilePathVar } from '../client/cache';
+import { userVar, currentFolderVar } from '../client/cache';
 import AddForm from './AddForm';
 import Loading from './Loading';
 import Error from './Error';
 import { GET_USER } from '../operations/queries/GET_USER';
-import { ItemTypes } from '../constants/ItemTypes';
 
 const Profile = (): JSX.Element => {
   const email = 'eak@example.com';
