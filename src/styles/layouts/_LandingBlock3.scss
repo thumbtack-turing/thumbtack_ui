@@ -1,7 +1,8 @@
 .block3 {
   background-color: $secondary-background-color;
   font-family: $comfortaa;
-  height: 125vh;
+  height: fit-content;
+  padding-bottom: 50px;
 }
 
 .how-it-works {
@@ -12,4 +13,22 @@
   font-weight: $main-font-bold;
   color: $black-coral;
   text-shadow: $text-shadow-light;;
+}
+
+.recording {
+  width: 700px;
+  height: auto;
+  margin-right: 30px;
+  margin-left: 40px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.how {
+  @include flex-row();
+  justify-content: center;
+  margin-bottom: 150px;
+}
+
+.how-title {
+  text-shadow: $text-shadow-light;
 }
