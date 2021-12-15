@@ -13,6 +13,7 @@ const LightDarkModeToggle = () => {
   const toggleTheme = () => {
     currentThemeVar({ theme: newTheme });
     setChecked(!checked);
+    localStorage.setItem('theme', newTheme)
   }
 
   return (
