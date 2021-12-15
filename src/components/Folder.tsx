@@ -24,7 +24,7 @@ export interface FolderDetails {
 }
 
 const Folder = (props: FolderProps): JSX.Element => {
-  const { id, name } = props;
+  const { id, name, childFolders, childResources } = props;
 
   const { loading: loadingGetFolder, error: errorGetFolder, data: dataGetFolder } = useQuery(GET_FOLDER, {
     variables: { id }
@@ -88,35 +88,39 @@ const Folder = (props: FolderProps): JSX.Element => {
     })
   }))
 
+  const openTextEditor = () => {
+    setFolderEditorOpenState(true)
+  }
+
   const [ folderEditorOpen, setFolderEditorOpenState ] = useState(false)
 
   const folderEditor = folderEditorOpen ?
   <FolderTextEditor id={id} setFolderEditorOpenState={setFolderEditorOpenState} name={name} /> :
-  <h3 className='folder-link-name'>{ name }</h3>
+  <div className="folder-buttons">
+    <button onClick={openTextEditor} className="edit-btn">
+      <img src={edit} alt="edit folder name" className="edit-img"/>
+    </button>
+    <h3 className='folder-link-name'>{ name }</h3>
+    <button onClick={ handleClose } className="close-btn">
+      <img src={closeIcon} alt="edit folder name" className="close-img"/>
+    </button>
+    </div>
 
-  const openTextEditor = () => {
-    setFolderEditorOpenState(true)
-  }
+    const containsInfo = `contains ${childFolders.length} folders & ${childResources.length} links`;
 
   return (
     <>
     { (loadingGetFolder || loadingDeleteFolder || loadingUpdateResource || loadingDeleteFolder)
       && <Loading /> }
-    { (errorGetFolder || errorDeleteFolder || errorUpdateResource || errorDeleteFolder) 
+    { (errorGetFolder || errorDeleteFolder || errorUpdateResource || errorDeleteFolder)
       && <Error /> }
     <article className='folder-container' ref={drag}  >
       <Link to={ `/myfolders/${id}` } onClick={ handleClick } className='folder-link'>
         <img src={folder2} alt="folder icon" className='folder2' ref={dropRef}/>
       </Link>
+      <h3 className='contains-info'>{ containsInfo }</h3>
         {folderEditor}
-        <div className="folder-buttons">
-          <button onClick={openTextEditor} className="edit-btn">
-            <img src={edit} alt="edit folder name" className="edit-img"/>
-          </button>
-          <button onClick={ handleClose } className="close-btn">
-            <img src={closeIcon} alt="edit folder name" className="close-img"/>
-          </button>
-        </div>
+
     </article>
     </>
   )
