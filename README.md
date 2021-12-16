@@ -35,7 +35,7 @@ As students, we realized that there must be a better way to organize tutorials, 
 
 ## Challenges
 
-- We found Apollo Client to have a steep learning curve for such a short project, especially its state management and testing aspects, and found that we needed to pivot away from some features we could've easily implemented with React + Context API
+- We found Apollo Client/GraphQL to have a steep learning curve for such a short project - especially its state management and testing aspects - and found that we needed to pivot away from some features we could've easily implemented with React + Context API
 - Mutations from the hosted BE weren't testable from the UI until 2/3 of the way through the project, forcing us to accelerating our cross-team communications and troubleshooting
 - A family emergency limited the amount of time we could spend writing code for the first half of this project, so we were not able to start off pair-coding like we planned to
 - AWS & Heroku crashed for a day on one of our crucial work days for testing interaction with the hosted BE
