@@ -9,6 +9,7 @@ As students, we realized that there must be a better way to organize tutorials, 
 ## Snapshots of Application
 
 <img src='https://thumbtack-ui.herokuapp.com/static/media/recording1.aeb83050.gif' height='200' width='auto' /> <img src='https://thumbtack-ui.herokuapp.com/static/media/recording2.4a76bde0.gif' height='200' width='auto' />
+<img src='https://media.giphy.com/media/4fxlnXmbAspCXzKf5r/giphy.gif' height='200' width='auto' /> <img src='https://media.giphy.com/media/Cl6l2Iybdl4FOFHtvu/giphy.gif' height='200' width='auto' /> <img src='https://media.giphy.com/media/olAcL55ASGhlKWOaHu/giphy.gif' height='200' width='auto' />
 
 ## Architecture Notes
 
@@ -57,3 +58,4 @@ If you'd like to run this repo locally:
 
 ## Project Spec
 - [Project Spec](https://mod4.turing.edu/projects/capstone/) provided by [Turing School of Software & Design](https://turing.edu/)
+
