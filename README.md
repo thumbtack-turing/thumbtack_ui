@@ -64,6 +64,7 @@ If you'd like to run this repo locally:
 
 - [Janika Hortizuela](https://github.com/jhortizu01)
 - [Nolan Caine](https://github.com/n0land0)
+- Check out our Back End team's repo [here](https://github.com/thumbtack-turing/thumbtack_api).
 
 ## Project Spec
 - [Project Spec](https://mod4.turing.edu/projects/capstone/) provided by [Turing School of Software & Design](https://turing.edu/)
