@@ -62,8 +62,8 @@ If you'd like to run this repo locally:
 
 ## Contributors
 
-- [Janika Hortizuela](https://github.com/jhortizu01)
-- [Nolan Caine](https://github.com/n0land0)
+- Janika Hortizuela - [GitHub](https://github.com/jhortizu01) • [LinkedIn](https://www.linkedin.com/in/janika-hortizuela/)
+- Nolan Caine - [GitHub](https://github.com/n0land0) • [LinkedIn](https://www.linkedin.com/in/nolancaine/)
 - Check out our Back End team's repo [here](https://github.com/thumbtack-turing/thumbtack_api).
 
 ## Project Spec
