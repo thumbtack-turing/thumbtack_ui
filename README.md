@@ -46,9 +46,13 @@ If you'd like to run this repo locally:
 
 ## Future Features
 
+- Multiple users with OAuth
+- Drag-n-droppable trash and 'up-one-level' icons
+- Resource sharing between users
+
 ## Contributors
 
-- [Janika Hortizuela]()
+- [Janika Hortizuela](https://github.com/jhortizu01)
 - [Nolan Caine](https://github.com/n0land0)
 
 ## Project Spec
