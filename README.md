@@ -4,15 +4,27 @@
 
 ## Abstract
 
+As students, we realized that there must be a better way to organize tutorials, videos and other learning materials. Thumbtack allows users to organize their saved websites how they want, using nested custom-named folders.
+
 ## Snapshots of Application
+
+<img src='https://thumbtack-ui.herokuapp.com/static/media/recording1.aeb83050.gif' height='200' width='auto' /> <img src='https://thumbtack-ui.herokuapp.com/static/media/recording2.4a76bde0.gif' height='200' width='auto' />
 
 ## Architecture Notes
 
 ## Technologies
 
-### Front End
+### Stack
+
+- Apollo Client
+- TypeScript
+- React with Hooks & Router
+- Sass
 
 ### Dependencies
+
+- Animate.css
+- React-DnD
 
 ## Wins
 
@@ -20,7 +32,7 @@
 
 ## Viewing & Installation
 
-The deployed app can be viewed [here]().
+The deployed app can be viewed [here](https://thumbtack-ui.herokuapp.com/).
 
 If you'd like to run this repo locally:
 
