@@ -11,6 +11,14 @@ As students, we realized that there must be a better way to organize tutorials, 
 <img src='https://thumbtack-ui.herokuapp.com/static/media/recording1.aeb83050.gif' height='200' width='auto' /> <img src='https://thumbtack-ui.herokuapp.com/static/media/recording2.4a76bde0.gif' height='200' width='auto' />
 <img src='https://media.giphy.com/media/4fxlnXmbAspCXzKf5r/giphy.gif' height='200' width='auto' /> <img src='https://media.giphy.com/media/Cl6l2Iybdl4FOFHtvu/giphy.gif' height='200' width='auto' /> <img src='https://media.giphy.com/media/olAcL55ASGhlKWOaHu/giphy.gif' height='200' width='auto' />
 
+## Wireframes
+
+<img width="450" alt="Screen Shot 2021-12-15 at 6 09 10 PM" src="https://user-images.githubusercontent.com/79823098/146289381-8a386c49-9731-47e6-833a-b3965045e665.png"> <img width="450" alt="Screen Shot 2021-12-15 at 6 07 56 PM" src="https://user-images.githubusercontent.com/79823098/146289403-d0656951-7b0a-4464-942a-b06f81128d2f.png">
+
+## Component Architecture
+
+<img width="500" alt="Screen Shot 2021-12-15 at 6 07 40 PM" src="https://user-images.githubusercontent.com/79823098/146289413-8688b879-5fa0-4880-9ad0-d8c6d4a4f8ab.png">
+
 ## Technologies
 
 ### Stack
@@ -24,6 +32,7 @@ As students, we realized that there must be a better way to organize tutorials, 
 
 - Animate.css
 - React-DnD
+
 
 ## Wins
 
