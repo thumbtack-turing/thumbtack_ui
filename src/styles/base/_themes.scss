@@ -14,7 +14,9 @@
   --filepath:#{$rich-black-fogra};
   --filepath-link:#{$columbia-blue-dark};
   --body-text:#{$rich-black-fogra};
-  --resource-background:#{$dark-sky-blue}
+  --resource-background:#{$dark-sky-blue};
+  --menu-divider:#{$deep-space-sparkle};
+  --landing-block-1:#{$pale-pink-dark};
 }
 
 [data-theme='dark'] {
@@ -33,7 +35,9 @@
   --filepath:#{$cultured};
   --filepath-link:#{$pewter-blue};
   --body-text:#{$cultured};
-  --resource-background:#{$raisin-black-dark}
+  --resource-background:#{$raisin-black-dark};
+  --menu-divider:#{$columbia-blue-light};
+  --landing-block-1:#{$light-blue};
 }
 
 .header,
@@ -100,5 +104,34 @@
 }
 
 .prompt-when-empty {
+  color: var(--body-text);
+}
+
+.contains-info {
+  color: $rich-black-fogra;
+}
+
+.navlink {
+  color: var(--body-text);
+}
+
+.menu-divider {
+  color: var(--menu-divider)
+}
+
+.go-to-app {
+  background-color: var(--header-background);
+  color: var(--body-text);
+}
+
+.videoContainer .overlay {
+  background: var(--landing-block-1);
+}
+
+.block2 {
+  background-color: var(--logo-background);
+}
+
+.feature-des {
   color: var(--body-text);
 }

@@ -10,7 +10,7 @@ const Feature3 = () => {
         <img src={feature3} alt="circle icon" className="feature-icon" />
         <h3 className="feature-story">Our Technology</h3>
         <p className="feature-des">
-        This app was built with TypeScript, React, SASS, Appollo Client and GraphQL.
+        This app was built with React, Apollo Client, TypeScript, Sass, Rails, and GraphQL.
         </p>
       </div>
     </ScrollAnimation>

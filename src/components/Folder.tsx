@@ -111,17 +111,14 @@ const Folder = (props: FolderProps): JSX.Element => {
 
   return (
     <>
-    { (loadingGetFolder || loadingUpdateFolder || loadingUpdateResource || loadingDeleteFolder)
-      && <Loading /> }
     { (errorGetFolder || errorDeleteFolder || errorUpdateResource || errorDeleteFolder)
       && <Error /> }
     <article className='folder-container' ref={drag}  >
       <Link to={ `/myfolders/${id}` } onClick={ handleClick } className='folder-link'>
         <img src={folder2} alt="folder icon" className='folder2' ref={dropRef}/>
+        <h3 className='contains-info'>{ containsInfo }</h3>
       </Link>
-      <h3 className='contains-info'>{ containsInfo }</h3>
         {folderEditor}
-
     </article>
     </>
   )

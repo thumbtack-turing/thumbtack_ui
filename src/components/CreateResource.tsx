@@ -43,8 +43,8 @@ const CreateResource = (): JSX.Element => {
   }
 
   return (
+    <>
     <article className='create-container'>
-    { loading && <Loading /> }
     { error && <Error type='invalid url'/> }
       <button
         onClick={ toggleVisibility }
@@ -85,6 +85,7 @@ const CreateResource = (): JSX.Element => {
           </form>
       }
     </article>
+    </>
   )
 }
 

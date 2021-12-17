@@ -10,7 +10,9 @@ const Feature1 = () => {
         <img src={feature1} alt="purple flower icon" className="feature-icon" />
         <h3 className="feature-story">Our Story</h3>
         <p className="feature-des">
-          As students, we realized that there must be a better way to organize tutorials, videos and other learning materials. This is where ThumbTack was born.
+          As students, we realized that there must be a better way to organize tutorials, videos, and other learning materials - and thus,
+            <span className='feature-app-name-callout'> Thumbtack </span>
+          was born.
         </p>
       </div>
     </ScrollAnimation>

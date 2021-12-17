@@ -1,9 +1,9 @@
 .menu {
-  @include wh(30%, 100%);
+  @include wh(20%, 100%);
   @include flex-row();
   align-items: center;
   justify-content: space-between;
-  padding-right: 2rem;
+  padding-right: 10rem;
 }
 
 .menu-divider {

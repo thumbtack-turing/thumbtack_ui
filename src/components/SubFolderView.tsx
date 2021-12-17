@@ -51,7 +51,6 @@ const SubFolderView = (): JSX.Element => {
 
 return (
   <section className='gallery'>
-    { loading && <Loading /> }
     { error && <Error /> }
     { data && <>
       <article className='folder-name-container'>

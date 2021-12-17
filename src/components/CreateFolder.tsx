@@ -37,9 +37,8 @@ const CreateFolder = (): JSX.Element => {
 
   return (
     <>
-    { loading && <Loading /> }
-    { error && <Error /> }
     <article className='create-container'>
+    { error && <Error /> }
       <button
         className='add-btn add-folder-btn'
         onClick={ toggleVisibility }

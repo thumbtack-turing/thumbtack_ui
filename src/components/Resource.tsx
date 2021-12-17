@@ -59,8 +59,6 @@ const Resource = ({id, name, url, image, createdAt}: ResourceProps): JSX.Element
 
   return (
     <>
-    { (loadingDeleteResource || loadingUpdateResource)
-      && <Loading /> }
     { (errorDeleteResource || errorUpdateResource)
       && <Error /> }
     <div
